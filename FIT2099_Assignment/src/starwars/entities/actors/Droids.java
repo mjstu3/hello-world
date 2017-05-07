@@ -56,7 +56,9 @@ public class Droids extends SWActor {
 
 			// build a list of available directions
 			for (Grid.CompassBearing d : Grid.CompassBearing.values()) {
-				
+				if (SWWorld.getEntitymanager().seesExit(this, d)) {
+					droiddirections.add(d);
+				}
 			}
 
 			Direction heading = droiddirections.get((int) (Math.floor(Math.random() * droiddirections.size())));
