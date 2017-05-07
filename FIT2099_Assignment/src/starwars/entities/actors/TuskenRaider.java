@@ -38,9 +38,11 @@ public class TuskenRaider extends SWActor {
 	 * 
 	 */
 	public TuskenRaider(int hitpoints, String name, MessageRenderer m, SWWorld world) {
-		super(Team.TUSKEN, 50, m, world);
+		super(Team.TUSKEN, 200, m, world);
 		// TODO Auto-generated constructor stub
 		this.name = name;
+		Blaster tuskenweapon = new Blaster(m);
+		setItemCarried(tuskenweapon);
 	}
 
 	@Override

@@ -177,11 +177,27 @@ public class SWWorld extends World {
 		
 		// A Tusken Raider
 		TuskenRaider tim = new TuskenRaider(10, "Tim", iface, this);
-		
 		tim.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(4,3);
 		entityManager.setLocation(tim, loc);
-
+		
+		// Another Tusken Raider
+		TuskenRaider tony = new TuskenRaider(10, "Tony", iface, this);
+		tony.setSymbol("T");
+		loc = myGrid.getLocationByCoordinates(7,3);
+		entityManager.setLocation(tony, loc);
+		
+		// Another Tusken Raider
+		TuskenRaider troy = new TuskenRaider(10, "Troy", iface, this);
+		troy.setSymbol("T");
+		loc = myGrid.getLocationByCoordinates(7,7);
+		entityManager.setLocation(troy, loc);
+		
+		// Another Tusken Raider
+		TuskenRaider troy = new TuskenRaider(10, "Theo", iface, this);
+		theo.setSymbol("T");
+		loc = myGrid.getLocationByCoordinates(8,2);
+		entityManager.setLocation(theo, loc);
 	}
 
 	/*
