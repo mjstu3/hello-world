@@ -41,8 +41,6 @@ public class TuskenRaider extends SWActor {
 		super(Team.TUSKEN, 200, m, world);
 		// TODO Auto-generated constructor stub
 		this.name = name;
-		Blaster tuskenweapon = new Blaster(m);
-		setItemCarried(tuskenweapon);
 	}
 
 	@Override
