@@ -116,7 +116,6 @@ public abstract class Actor<T extends ActionInterface> extends Entity {
 	 * @see 	#act
 	 */
 	public void tick(Location l) {
-		
 		if (waittime >0){//waiting
 			waittime --;//decrement the waittime
 			this.setWaittime(waittime); 
