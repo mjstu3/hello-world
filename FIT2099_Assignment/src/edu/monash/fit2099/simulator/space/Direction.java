@@ -11,5 +11,7 @@ package edu.monash.fit2099.simulator.space;
  * 
  */
 public interface Direction {
+
+	
 	
 }

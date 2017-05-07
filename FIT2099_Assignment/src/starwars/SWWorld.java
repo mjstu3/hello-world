@@ -199,6 +199,12 @@ public class SWWorld extends World {
 		troy.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(3,4);
 		entityManager.setLocation(troy, loc);
+		
+		//Droid
+		Droids R2D2 = new Droids(200, "R2D2", iface, this);
+		R2D2.setSymbol("R2");
+		loc = myGrid.getLocationByCoordinates(5,5);
+		entityManager.setLocation(R2D2, loc);
 				
 	}
 
