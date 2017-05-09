@@ -10,12 +10,17 @@ import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
 import starwars.actions.Move;
+import starwars.actions.Take;
 import starwars.entities.actors.behaviors.AttackInformation;
 import starwars.entities.actors.behaviors.AttackNeighbours;
 
 public class Droids extends SWActor {
 
 	private String name;
+	//StepCounter for R2D2 moves 
+	private int stepCount = 0;
+	//Initial value East for R2D2 to move
+	int num = 2;
 
 	/**
 	 * Create a Tusken Raider.  Tusken Raiders will randomly wander
@@ -41,37 +46,77 @@ public class Droids extends SWActor {
 		super(Team.GOOD, hitpoints, m, world);
 		// TODO Auto-generated constructor stub
 		this.name = name;
+		this.addAffordance(new Take(this, m));
+		
 	}
 
 	@Override
 	public void act() {
-		if (isDead()) {
-			return;
-		}
-		say(describeLocation());
-
-		if (Math.random() > 0.5){
+		
+		//Movement only for R2D2
+		if (name == "R2D2"){
+			if (isDead()) {
+				return;
+			}
 			
-			ArrayList<Direction> droiddirections = new ArrayList<Direction>();
-
-			// build a list of available directions
-			for (Grid.CompassBearing d : Grid.CompassBearing.values()) {
-				if (SWWorld.getEntitymanager().seesExit(this, d)) {
-					droiddirections.add(d);
+			say(describeLocation());
+	
+			if (Math.random() > 0.5){
+				
+				ArrayList<Direction> droiddirections = new ArrayList<Direction>();
+	
+				// build a list of available directions
+				for (Grid.CompassBearing d : Grid.CompassBearing.values()) {
+					if (SWWorld.getEntitymanager().seesExit(this, d )) {
+						droiddirections.add(d);
+					}
+				}
+				
+				//Validation statements to walk R2 right 5 times and left 5 times.
+				if (stepCount == 10){
+					stepCount = 0;
+				}
+				
+				if (stepCount > 4 && stepCount <= 9){
+					
+					num = 6;
+					}
+				if (stepCount >= 0 && stepCount < 4){
+					num = 2;
+				}
+				
+						
+				//Index of East is 2 and Index of West is 6
+				Direction heading = droiddirections.get(num);
+				stepCount = stepCount + 1;
+				
+				say(getShortDescription() + " is heading " + heading + " next.");
+				Move myMove = new Move(heading, messageRenderer, world);
+	
+				scheduler.schedule(myMove, this, 1);
+			}
+		}
+		
+		if (name == "C3PO"){
+			if (isDead()) {
+				return;
+			}
+			double n = Math.random();
+			if (n < 0.1){
+				say(describeLocation() + ".   I am C3PO, Please help me please :(.");
 				}
 			}
-
-			Direction heading = droiddirections.get((int) (Math.floor(Math.random() * droiddirections.size())));
-			say(getShortDescription() + " is heading " + heading + " next.");
-			Move myMove = new Move(heading, messageRenderer, world);
-
-			scheduler.schedule(myMove, this, 1);
-		}
 	}
 
 	@Override
 	public String getShortDescription() {
-		return name + " the Droid";
+		//Statement to pick up Droid parts
+		if (this.getSymbol() == "D"){
+			return name + " Droid Parts";
+		}
+		else{
+			return name + " the Droid";
+		}
 	}
 
 	@Override
