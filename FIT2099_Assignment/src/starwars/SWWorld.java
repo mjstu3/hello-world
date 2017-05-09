@@ -187,7 +187,6 @@ public class SWWorld extends World {
 		loc = myGrid.getLocationByCoordinates(7,3);
 		entityManager.setLocation(tony, loc);
 		
-		
 		// Another Tusken Raider
 		TuskenRaider theo = new TuskenRaider(200, "Theo", iface, this);
 		theo.setSymbol("T");
@@ -206,13 +205,23 @@ public class SWWorld extends World {
 		loc = myGrid.getLocationByCoordinates(4,4);
 		entityManager.setLocation(R2D2, loc);
 		
-		
 		//Droid C3PO
 		Droids C3PO = new Droids(200, "C3PO", iface, this);
 		C3PO.setSymbol("C3");
 		loc = myGrid.getLocationByCoordinates(1,1);
 		entityManager.setLocation(C3PO, loc);
-				
+		
+		//Humanoid Uncle Owen
+		Humanoids owen = new Humanoids(100, "Uncle Owen", iface, this);
+		owen.setSymbol("U");
+		loc = myGrid.getLocationByCoordinates(8,7);
+		entityManager.setLocation(owen, loc);
+		
+		//Humanoid Aunt Beru
+		Humanoids beru = new Humanoids(100, "Aunt Beru", iface, this);
+		beru.setSymbol("A");
+		loc = myGrid.getLocationByCoordinates(9,6);
+		entityManager.setLocation(beru, loc);	
 	}
 
 	/*

@@ -1,0 +1,5 @@
+package starwars.entities.actors;
+
+public class Humanoids {
+
+}
