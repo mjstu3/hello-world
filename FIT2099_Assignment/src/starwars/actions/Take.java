@@ -69,11 +69,11 @@ public class Take extends SWAffordance {
 		if (target instanceof SWEntityInterface) {
 			SWEntityInterface theItem = (SWEntityInterface) target;
 			a.setItemCarried(theItem);
-			if (((SWEntityInterface) target).getSymbol() != "R2") {
-				SWAction.getEntitymanager().remove(target);//remove the target from the entity manager since it's now held by the SWActor
-			}
-				//remove the take affordance
-				target.removeAffordance(this);
+			
+			SWAction.getEntitymanager().remove(target);//remove the target from the entity manager since it's now held by the SWActor
+		
+			//remove the take affordance
+			target.removeAffordance(this);
 			
 			// add a leave affordance
 			target.addAffordance(new Leave(theItem, messageRenderer));
