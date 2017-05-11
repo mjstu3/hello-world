@@ -19,7 +19,7 @@ import starwars.SWEntityInterface;
  * 2017/02/03	Fixed the bug where the an actor could attack another actor in the same team (asel)
  * 2017/02/08	Attack given a priority of 1 in constructor (asel)
  */
-public class Attack extends SWAffordance implements SWActionInterface {
+public class Fix extends SWAffordance implements SWActionInterface {
 
 	
 	/**
@@ -29,7 +29,7 @@ public class Attack extends SWAffordance implements SWActionInterface {
 	 * @param theTarget the target being attacked
 	 * @param m message renderer to display messages
 	 */
-	public Attack(SWEntityInterface theTarget, MessageRenderer m) {
+	public Fix(SWEntityInterface theTarget, MessageRenderer m) {
 		super(theTarget, m);	
 		priority = 1;
 	}
@@ -53,9 +53,11 @@ public class Attack extends SWAffordance implements SWActionInterface {
 	 */
 	@Override
 	public String getDescription() {
-		return "attack " +  this.target.getShortDescription();
+		
+		return " repair " + this.target.getShortDescription();
 	}
 	
+
 
 
 
@@ -106,13 +108,13 @@ public class Attack extends SWAffordance implements SWActionInterface {
 		SWEntityInterface target = this.getTarget();
 		boolean targetIsActor = target instanceof SWActor;
 		SWActor targetActor = null;
-		int energyForAttackWithWeapon = 1;//the amount of energy required to attack with a weapon
+		
 		
 		if (targetIsActor) {
 			targetActor = (SWActor) target;
 		}
 				
-		if (a.getSymbol() != "T" && a.getSymbol() != "C3" && a.getSymbol() != "B"){
+		if (a.getSymbol() == "D") {
 			
 			if (target.getSymbol() == "D" && a.getItemCarried().getSymbol() == "D" ){
 				target.setHitpoints(200);
@@ -120,60 +122,12 @@ public class Attack extends SWAffordance implements SWActionInterface {
 			}
 			
 		}
+		else {
+			a.say("Nothing can be repaired...");
+		}
+	}	
 		
 					
+}	
 		
-		if (targetIsActor && (a.getTeam() == targetActor.getTeam())) { //don't attack SWActors in the same team
-			a.say("\t" + a.getShortDescription() + " says: Silly me! We're on the same team, " + target.getShortDescription() + ". No harm done ------------------------------");
-		}
-		else if (a.isHumanControlled() // a human-controlled player can attack anyone
-			|| (targetIsActor && (a.getTeam() != targetActor.getTeam()))) {  // others will only attack actors on different teams
-				
-			a.say(a.getShortDescription() + " is attacking " + target.getShortDescription() + "!");
-			
-			SWEntityInterface itemCarried = a.getItemCarried();
-			if (itemCarried != null) {//if the actor is carrying an item 
-				if (itemCarried.hasCapability(Capability.WEAPON)) {
-					target.takeDamage(itemCarried.getHitpoints() + 1); // blunt weapon won't do much, but it will still do some damage
-					itemCarried.takeDamage(1); // weapon gets blunt
-					a.takeDamage(energyForAttackWithWeapon); // actor uses energy to attack
-				}
-				else {//an attack with a none weapon
-					if (targetIsActor) {
-						targetActor.say("\t" + targetActor.getShortDescription()
-								+ " is amused by " + a.getShortDescription()
-								+ "'s attempted attack with "
-								+ itemCarried.getShortDescription());
-					}
-				} 
-			}
-			else { // attack with bare hands
-				target.takeDamage((a.getHitpoints()/20) + 1); // a bare-handed attack doesn't do much damage.
-				a.takeDamage(2*energyForAttackWithWeapon); // actor uses energy. It's twice as tiring as using a weapon
-			}
-			
-			
-			
-			//After the attack
-			
-			if (a.isDead()) {//the actor who attacked is dead after the attack
-							
-				a.setLongDescription(a.getLongDescription() + ", that died of exhaustion while attacking someone");
-				
-				//remove the attack affordance of the dead actor so it can no longer be attacked
-				a.removeAffordance(this);
-				
-				
-			}
-			if (this.getTarget().getHitpoints() <= 0) {  // can't use isDead(), as we don't know that the target is an actor
-				target.setLongDescription(target.getLongDescription() + ", that was killed in a fight");
-							
-				//remove the attack affordance of the dead actor so it can no longer be attacked
-				targetActor.removeAffordance(this);
-
-				
-			}
-		} // not game player and different teams
 		
-	}
-}

@@ -25,6 +25,7 @@ import edu.monash.fit2099.simulator.space.Location;
 import edu.monash.fit2099.simulator.time.Scheduler;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.actions.Attack;
+import starwars.actions.Fix;
 import starwars.actions.Move;
 
 public abstract class SWActor extends Actor<SWActionInterface> implements SWEntityInterface {
@@ -97,6 +98,8 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 		//SWActors are given the Attack affordance hence they can be attacked
 		SWAffordance attack = new Attack(this, m);
 		this.addAffordance(attack);
+		
+		
 	}
 	
 	/**
@@ -120,6 +123,10 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	public Team getTeam() {
 		return team;
 	}
+	
+	public SWWorld getSWWorld() {
+		return world;
+	}
 
 	/**
 	 * Returns the hit points of this <code>SWActor</code>.
@@ -131,6 +138,10 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	@Override
 	public int getHitpoints() {
 		return hitpoints;
+	}
+	@Override
+	public void setHitpoints(int hp) {
+		hitpoints = hitpoints + hp;
 	}
 	
 	/**

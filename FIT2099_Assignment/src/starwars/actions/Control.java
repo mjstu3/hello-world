@@ -60,14 +60,13 @@ public class Control extends SWAffordance implements SWActionInterface {
 	 * 			good unless this <code>SWActor a</code> has a suitable weapon.
 	 */
 	@Override
-	// Statements to show that only Ben Kenobi and Luke can control
 	public boolean canDo(SWActor a) {
+		// Statements to show that only Ben Kenobi and Luke can control the force
 		if (a.getSymbol() == "B" || a.getSymbol() == "@" ){
 			return true;
 		}
-		else{
-			return false;
-		}
+		
+		return false;
 	}
 
 	/* Control commands -> need to manipulate the direction of next move of another entity, 
@@ -75,11 +74,9 @@ public class Control extends SWAffordance implements SWActionInterface {
 	 * are the only entities able to control.
 	 * 
 	 */
-	
-	/*
 	@Override
 	public void act(SWActor a) {
-		SWEntityInterface target = this.getTarget();
+		/*SWEntityInterface target = this.getTarget();
 		boolean targetIsActor = target instanceof SWActor;
 		SWActor targetActor = null;
 		int energyForAttackWithWeapon = 1;//the amount of energy required to attack with a weapon
@@ -140,7 +137,8 @@ public class Control extends SWAffordance implements SWActionInterface {
 				
 			}
 		} // not game player and different teams
+		*/
 		
 	}
-	*/
+	
 }

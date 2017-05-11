@@ -15,4 +15,5 @@ public enum Capability {
 	            // has the Dip affordance.  Any FILLABLE Entity MUST implement the Fillable interface
 	DRINKABLE,//DRINKABLE capability allows an entity to be consumed by another entity 
 	
+	
 }

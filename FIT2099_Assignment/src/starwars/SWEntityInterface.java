@@ -61,6 +61,13 @@ public interface SWEntityInterface extends EntityInterface {
 	 * 
 	 * @return the amount of trainingpoints
 	 */
+	
+	public void setHitpoints(int hp);
+	/**
+	 * sets the amount of hitpoints
+	 * 
+	 * 
+	
 	public int getTrainingpoints();
 	
 	/**
@@ -85,5 +92,7 @@ public interface SWEntityInterface extends EntityInterface {
 	 * must be trained 4 times to get 100 points
 	 */
 	public void takeTraining();
+	
+	public int getTrainingpoints();
 
 }

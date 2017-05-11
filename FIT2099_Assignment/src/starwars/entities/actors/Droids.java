@@ -6,9 +6,11 @@ import edu.monash.fit2099.gridworld.Grid;
 import edu.monash.fit2099.simulator.space.Direction;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.SWActor;
+import starwars.SWAffordance;
 import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
+import starwars.actions.Fix;
 import starwars.actions.Move;
 import starwars.actions.Take;
 
@@ -45,7 +47,7 @@ public class Droids extends SWActor {
 		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.addAffordance(new Take(this, m));
-		
+		this.addAffordance(new Fix(this, m));
 	}
 
 	@Override
@@ -58,6 +60,7 @@ public class Droids extends SWActor {
 			}
 			
 			say(describeLocation());
+			
 	
 			if (Math.random() > 0.5){
 				
@@ -93,6 +96,9 @@ public class Droids extends SWActor {
 	
 				scheduler.schedule(myMove, this, 1);
 			}
+			
+			
+			 
 		}
 		
 		if (name == "C3PO"){
@@ -100,6 +106,7 @@ public class Droids extends SWActor {
 				return;
 			}
 			double n = Math.random();
+			// 10 percent chance of C3PO speaking per turn.
 			if (n < 0.1){
 				say(describeLocation() + ".   I am C3PO, Please help me please :(.");
 				}
@@ -109,12 +116,11 @@ public class Droids extends SWActor {
 	@Override
 	public String getShortDescription() {
 		//Statement to pick up Droid parts
-		if (this.getSymbol() == "D"){
+		if (this.getHitpoints() <= 0){
 			return name + " Droid Parts";
 		}
-		else{
-			return name + " the Droid";
-		}
+		
+		return name + " the Droid";
 	}
 
 	@Override
@@ -127,4 +133,18 @@ public class Droids extends SWActor {
 		return this.getShortDescription() + " [" + this.getHitpoints() + "] is at " + location.getShortDescription();
 
 	}
+	
+	public boolean isDroidPart(String symbol) {
+		return symbol == "D";
+	}
+	
+	public int getHealth() {
+		return this.getHitpoints();
+	}
+	
+	public void setHealth(int hp) {
+		this.setHitpoints(hp);
+	}
+	
+	
 }

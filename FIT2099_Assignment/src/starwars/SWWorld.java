@@ -212,14 +212,14 @@ public class SWWorld extends World {
 		loc = myGrid.getLocationByCoordinates(1,1);
 		entityManager.setLocation(C3PO, loc);
 				
-		//Droid C3PO
+		//Droid 1
 		Droids d1 = new Droids(0, "", iface, this, 0, 0);
 		d1.setSymbol("D");
 		loc = myGrid.getLocationByCoordinates(6,4);
 		entityManager.setLocation(d1, loc);
 		
-		//Droid C3PO
-		Droids d2 = new Droids(0, "D", iface, this, 0, 0);
+		//Droid 2
+		Droids d2 = new Droids(0, "", iface, this, 0, 0);
 		d2.setSymbol("D");
 		loc = myGrid.getLocationByCoordinates(2,4);
 		entityManager.setLocation(d2, loc);
