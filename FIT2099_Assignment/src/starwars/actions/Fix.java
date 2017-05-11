@@ -114,16 +114,17 @@ public class Fix extends SWAffordance implements SWActionInterface {
 			targetActor = (SWActor) target;
 		}
 				
-		if (a.getSymbol() == "D") {
+		if (target.getSymbol() == "D") {
 			
 			if (target.getSymbol() == "D" && a.getItemCarried().getSymbol() == "D" ){
 				target.setHitpoints(200);
 				a.say(a.getShortDescription() + " repaired " + target.getShortDescription());
+				a.setItemCarried(null);
 			}
 			
 		}
 		else {
-			a.say("Nothing can be repaired...");
+			a.say("Nothing can be repaired..................................................................................");
 		}
 	}	
 		
