@@ -235,6 +235,15 @@ public class SWWorld extends World {
 		beru.setSymbol("A");
 		loc = myGrid.getLocationByCoordinates(9,6);
 		entityManager.setLocation(beru, loc);
+		
+		
+		//Canteen on Ben's Route
+		loc = myGrid.getLocationByCoordinates(5,5);
+		SWEntity canteen2 = new Canteen(iface, 10,0);
+		canteen2.setSymbol("o");
+		canteen2.setHitpoints(500);
+		entityManager.setLocation(canteen2, loc);
+		canteen.addAffordance(new Take(canteen2, iface));
 	}
 
 	/*
