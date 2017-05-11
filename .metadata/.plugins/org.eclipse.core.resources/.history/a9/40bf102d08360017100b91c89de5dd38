@@ -58,10 +58,22 @@ public class Train extends SWAffordance implements SWActionInterface {
 	}
 
 	/**
-	 * Perform the <code>Train</code> command on an entity.
-	 * @param 	a the <code>SWActor</code> who is being trained
+	 * Perform the <code>Attack</code> command on an entity.
+	 * <p>
+	 * This method does not perform any damage (an attack) if,
+	 * <ul>
+	 * 	<li>The target of the <code>Attack</code> and the <code>SWActor a</code> are in the same <code>Team</code></li>
+	 * 	<li>The <code>SWActor a</code> is holding an item without the <code>WEAPON Affordance</code></li>
+	 * </ul>
+	 * <p>
+	 * else it would damage the entity attacked, tires the attacker, and blunts any weapon used for the attack.
+	 * 
+	 * TODO : check if the weapon has enough hitpoints and the attacker has enough energy before an attack.
+	 * 
+	 * @param 	a the <code>SWActor</code> who is attacking
 	 * @pre 	this method should only be called if the <code>SWActor a</code> is alive
-	 * @pre		training must not be performed on a dead <code>SWActor</code>
+	 * @pre		an <code>Attack</code> must not be performed on a dead <code>SWActor</code>
+	 * @post	if a <code>SWActor</code>dies in an <code>Attack</code> their <code>Attack</code> affordance would be removed
 	 * @see		starwars.SWActor#isDead()
 	 * @see 	starwars.Team
 	 */

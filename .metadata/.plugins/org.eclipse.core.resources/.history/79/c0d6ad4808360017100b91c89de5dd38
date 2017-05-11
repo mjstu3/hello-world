@@ -224,18 +224,6 @@ public class SWWorld extends World {
 		d2.setSymbol("D");
 		loc = myGrid.getLocationByCoordinates(2,4);
 		entityManager.setLocation(d2, loc);
-		
-		//Humanoid Uncle Owen
-		Humanoids owen = new Humanoids(100, "Uncle Owen", iface, this);
-		owen.setSymbol("U");
-		loc = myGrid.getLocationByCoordinates(8,7);
-		entityManager.setLocation(owen, loc);
-				
-		//Humanoid Aunt Beru
-		Humanoids beru = new Humanoids(100, "Aunt Beru", iface, this);
-		beru.setSymbol("A");
-		loc = myGrid.getLocationByCoordinates(9,6);
-		entityManager.setLocation(beru, loc);
 	}
 
 	/*
