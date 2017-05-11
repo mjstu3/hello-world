@@ -80,10 +80,25 @@ public class Player extends SWActor {
 		//get the items carried for the player
 		SWEntityInterface itemCarried = this.getItemCarried();
 		if (itemCarried != null) {
+			//Make sure Droid parts don't show health
+			if (itemCarried.getSymbol() == "D"){
+				say(this.getShortDescription() 
+						+ " is holding " + itemCarried.getShortDescription() );
+			}
+			
+			else if (itemCarried.getSymbol() == "R2"){
+				say(itemCarried.getShortDescription() 
+						+ " is following " + this.getShortDescription());
+					
+			}
 			//and describe the item carried if the player is actually carrying an item
-			say(this.getShortDescription() 
+			else{
+				say(this.getShortDescription() 
+			
 					+ " is holding " + itemCarried.getShortDescription() + " [" + itemCarried.getHitpoints() + "]");
+			}
 		}
+		
 		
 		//get the contents of the location
 		List<SWEntityInterface> contents = this.world.getEntityManager().contents(location);
@@ -93,7 +108,13 @@ public class Player extends SWActor {
 			say(this.getShortDescription() + " can see:");
 			for (SWEntityInterface entity : contents) {
 				if (entity != this) { // don't include self in scene description
-					say("\t " + entity.getSymbol() + " - " + entity.getLongDescription() + " [" + entity.getHitpoints() + "]");
+					//Don't include health for droid parts.
+					if (entity.getSymbol() != "D"){
+						say("\t " + entity.getSymbol() + " - " + entity.getLongDescription() + " [" + entity.getHitpoints() + "]");
+					}
+					else {
+						say("\t " + entity.getSymbol() + " - " + entity.getLongDescription() );
+					}
 				}
 			}
 		}

@@ -66,8 +66,14 @@ public class Attack extends SWAffordance implements SWActionInterface {
 	 * 			good unless this <code>SWActor a</code> has a suitable weapon.
 	 */
 	@Override
+	// Statements to show that Only Tuskun Raiders, Ben Kenobi and Luke can attack
 	public boolean canDo(SWActor a) {
-		return true;
+		if (a.getSymbol() == "T" || a.getSymbol() == "B" || a.getSymbol() == "@" ){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	
@@ -106,7 +112,7 @@ public class Attack extends SWAffordance implements SWActionInterface {
 					
 		
 		if (targetIsActor && (a.getTeam() == targetActor.getTeam())) { //don't attack SWActors in the same team
-			a.say("\t" + a.getShortDescription() + " says: Silly me! We're on the same team, " + target.getShortDescription() + ". No harm done");
+			a.say("\t" + a.getShortDescription() + "------------------------------ says: Silly me! We're on the same team, " + target.getShortDescription() + ". No harm done ------------------------------");
 		}
 		else if (a.isHumanControlled() // a human-controlled player can attack anyone
 			|| (targetIsActor && (a.getTeam() != targetActor.getTeam()))) {  // others will only attack actors on different teams
