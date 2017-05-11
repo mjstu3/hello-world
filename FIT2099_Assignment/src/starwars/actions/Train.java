@@ -73,6 +73,31 @@ public class Train extends SWAffordance implements SWActionInterface {
 		if (targetIsActor) {
 			targetActor = (SWActor) target;
 		}
-		// to be continued
+		
+		if (targetActor.getSymbol() == "B") {
+			
+			a.say(target.getShortDescription() + " is training " + a.getShortDescription() + "!");
+			
+			a.takeTraining();
+			int trainingpoints = a.getTrainingpoints();
+			
+			if (trainingpoints >= 100) {
+				a.say(a.getShortDescription() + " now has " + trainingpoints + " training points and is fully trained.");
+			}
+			else {
+				a.say(a.getShortDescription() + " now has " + trainingpoints + " training points.");
+				a.say(a.getShortDescription() + " needs " + (100 - trainingpoints) + " training points to be fully trained.");
+			}
+			
+			if (this.getTarget().getHitpoints() <= 0) {  // can't use isDead(), as we don't know that the target is an actor
+				target.setLongDescription(target.getLongDescription() + ", that was killed in a fight");
+							
+				//remove the train affordance of the dead actor so it can no longer be attacked
+				targetActor.removeAffordance(this);
+			}
+		}
+		else { // can't be trained with anyone except Ben
+			a.say("\t" + target.getShortDescription() + "says, I can't train you, I am not Ben Kenobi!");
+		}
 	}
 }

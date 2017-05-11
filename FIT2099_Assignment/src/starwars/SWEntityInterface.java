@@ -57,6 +57,13 @@ public interface SWEntityInterface extends EntityInterface {
 	public int getHitpoints();
 	
 	/**
+	 * Returns the trainingpoints of this <code>SWEntity</code> or <code>SWActor</code>.
+	 * 
+	 * @return the amount of trainingpoints
+	 */
+	public int getTrainingpoints();
+	
+	/**
 	 * Method that reduces the <code>hitpoints</code> to insist damage on of this 
 	 * <code>SWEntity</code> or <code>SWActor</code>.
 	 * 
@@ -64,5 +71,12 @@ public interface SWEntityInterface extends EntityInterface {
 	 * @pre <code>damage</code> should be greater than or equal to zero to avoid any increase in the number of <code>hitpoints</code>
 	 */
 	public void takeDamage(int damage);
+	
+	/**
+	 * Method increases the level of training on <code>SWActor</code> by incrementing 
+	 * the amount of <code>training</code> by 25 points out of 100, so <code>SWActor</code>
+	 * must be trained 4 times to get 100 points
+	 */
+	public void takeTraining();
 
 }

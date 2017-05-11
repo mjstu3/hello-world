@@ -114,7 +114,7 @@ public class SWWorld extends World {
 		loc = myGrid.getLocationByCoordinates(5,9);
 		
 		// Luke
-		Player luke = new Player(Team.GOOD, 100, iface, this);
+		Player luke = new Player(Team.GOOD, 100, iface, this, 0);
 		luke.setShortDescription("Luke");
 		entityManager.setLocation(luke, loc);
 		luke.resetMoveCommands(loc);
@@ -176,26 +176,25 @@ public class SWWorld extends World {
 		entityManager.setLocation(blaster, loc);
 		
 		// A Tusken Raider
-		TuskenRaider tim = new TuskenRaider(200, "Tim", iface, this);
+		TuskenRaider tim = new TuskenRaider(200, "Tim", iface, this, 0);
 		tim.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(4,3);
 		entityManager.setLocation(tim, loc);
 		
 		// Another Tusken Raider
-		TuskenRaider tony = new TuskenRaider(200, "Tony", iface, this);
+		TuskenRaider tony = new TuskenRaider(200, "Tony", iface, this, 0);
 		tony.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(7,3);
 		entityManager.setLocation(tony, loc);
 		
-		
 		// Another Tusken Raider
-		TuskenRaider theo = new TuskenRaider(200, "Theo", iface, this);
+		TuskenRaider theo = new TuskenRaider(200, "Theo", iface, this, 0);
 		theo.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(8,2);
 		entityManager.setLocation(theo, loc);
 		
 		// Another Tusken Raider
-		TuskenRaider troy = new TuskenRaider(200, "Troy", iface, this);
+		TuskenRaider troy = new TuskenRaider(200, "Troy", iface, this, 0);
 		troy.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(2,5);
 		entityManager.setLocation(troy, loc);

@@ -27,7 +27,7 @@ public class BenKenobi extends SWLegend {
 	private static BenKenobi ben = null; // yes, it is OK to return the static instance!
 	private Patrol path;
 	private BenKenobi(MessageRenderer m, SWWorld world, Direction [] moves) {
-		super(Team.GOOD, 1000, m, world);
+		super(Team.GOOD, 1000, m, world, 0);
 		path = new Patrol(moves);
 		this.setShortDescription("Ben Kenobi");
 		this.setLongDescription("Ben Kenobi, an old man who has perhaps seen too much");

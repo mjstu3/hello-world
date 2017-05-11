@@ -35,6 +35,9 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	/**The amount of <code>hitpoints</code> of this actor. If the hitpoints are zero or less this <code>Actor</code> is dead*/
 	private int hitpoints;
 	
+	/**The amount of <code>trainingpoints</code> of this actor. If the trainingpoints are less than 100 <code>Actor</code> is not fully trained*/
+	private int trainingpoints;
+	
 	/**The world this <code>SWActor</code> belongs to.*/
 	protected SWWorld world;
 	
@@ -68,19 +71,22 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	 * @param 	hitpoints initial hitpoints of this <code>SWActor</code> to start with
 	 * @param 	m	message renderer for this <code>SWActor</code> to display messages
 	 * @param 	world the <code>World</code> to which <code>SWActor</code> belongs to
+	 * @param	trainingpoints inital trainingpoints of this <code>SWActor</code> to start with
 	 * 
 	 * @see 	#team
 	 * @see 	#hitpoints
 	 * @see 	#world
 	 * @see 	starwars.actions.Attack
+	 * @see 	#trainingpoints
 	 */
-	public SWActor(Team team, int hitpoints, MessageRenderer m, SWWorld world) {
+	public SWActor(Team team, int hitpoints, MessageRenderer m, SWWorld world, int trainingpoints) {
 		super(m);
 		actions = new HashSet<SWActionInterface>();
 		this.team = team;
 		this.hitpoints = hitpoints;
 		this.world = world;
 		this.symbol = "@";
+		this.trainingpoints = trainingpoints;
 		
 		//SWActors are given the Attack affordance hence they can be attacked
 		SWAffordance attack = new Attack(this, m);
@@ -119,6 +125,16 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	@Override
 	public int getHitpoints() {
 		return hitpoints;
+	}
+	
+	/**
+	 * Returns the trainingpoints of this <code>SWEntity</code> or <code>SWActor</code>.
+	 * 
+	 * @return the amount of trainingpoints
+	 */
+	@Override
+	public int getTrainingpoints() {
+		return trainingpoints;
 	}
 
 	/**
@@ -179,6 +195,16 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 		//Precondition 1: Ensure the damage is not negative. Negative damage could increase the SWActor's hitpoints
 		assert (damage >= 0)	:"damage on SWActor must not be negative";
 		this.hitpoints -= damage;
+	}
+	
+	/**
+	 * Method increases the level of training on <code>SWActor</code> by incrementing 
+	 * the amount of <code>training</code> by 25 points out of 100, so <code>SWActor</code>
+	 * must be trained 4 times to get 100 points
+	 */
+	@Override
+	public void takeTraining() {
+		this.trainingpoints += 25;
 	}
 
 	/**

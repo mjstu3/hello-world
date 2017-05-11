@@ -27,8 +27,8 @@ public class TestActor extends SWActor {
 	 * @param m <code>MessageRenderer</code> to display messages.
 	 * @param world the <code>SWWorld</code> world to which this <code>TestActor</code> belongs to
 	 */
-	public TestActor(MessageRenderer m, SWWorld world) {
-		super(Team.GOOD, 50, m, world);
+	public TestActor(MessageRenderer m, SWWorld world, int trainingpoints) {
+		super(Team.GOOD, 50, m, world, trainingpoints);
 	}
 	
 	@Override

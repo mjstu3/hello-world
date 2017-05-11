@@ -23,6 +23,9 @@ public class SWEntity extends Entity implements SWEntityInterface {
 	
 	/**The amount of <code>hitpoints</code> of this <code>SWEntity</code>.*/
 	protected int hitpoints = 0; // Not all non-actor entities will make use of this
+	
+	/**The amount of <code>trainingpoints</code> of this <code>SWEntity</code>.*/
+	protected int trainingpoints = 0; // Not all non-actor entities will make use of this
 
 	/**
 	 * Constructor for this <code>SWEntity</code>. Will initialize this <code>SWEntity</code>'s
@@ -83,6 +86,18 @@ public class SWEntity extends Entity implements SWEntityInterface {
 		//Precondition 1: Ensure that the damage is not negative
 		assert (damage >= 0)	:"damage on SWEntity must not be negative";
 		this.hitpoints -= damage;
+	}
+
+
+	@Override
+	public int getTrainingpoints() {
+		return trainingpoints;
+	}
+
+
+	@Override
+	public void takeTraining() {
+		this.trainingpoints += 25;
 	}
 	
 }

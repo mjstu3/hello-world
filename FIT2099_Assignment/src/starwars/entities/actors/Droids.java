@@ -11,8 +11,6 @@ import starwars.SWWorld;
 import starwars.Team;
 import starwars.actions.Move;
 import starwars.actions.Take;
-import starwars.entities.actors.behaviors.AttackInformation;
-import starwars.entities.actors.behaviors.AttackNeighbours;
 
 public class Droids extends SWActor {
 
@@ -43,7 +41,7 @@ public class Droids extends SWActor {
 	 * 
 	 */
 	public Droids(int hitpoints, String name, MessageRenderer m, SWWorld world) {
-		super(Team.GOOD, hitpoints, m, world);
+		super(Team.GOOD, hitpoints, m, world, 0);
 		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.addAffordance(new Take(this, m));

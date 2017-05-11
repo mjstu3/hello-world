@@ -1,17 +1,10 @@
 package starwars.entities.actors;
 
-import java.util.ArrayList;
-
-import edu.monash.fit2099.gridworld.Grid;
-import edu.monash.fit2099.simulator.space.Direction;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.SWActor;
 import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
-import starwars.actions.Move;
-import starwars.entities.actors.behaviors.AttackInformation;
-import starwars.entities.actors.behaviors.AttackNeighbours;
 
 public class Humanoids extends SWActor {
 
@@ -35,7 +28,7 @@ public class Humanoids extends SWActor {
 	 * 
 	 */
 	public Humanoids(int hitpoints, String name, MessageRenderer m, SWWorld world) {
-		super(Team.GOOD, hitpoints, m, world);
+		super(Team.GOOD, hitpoints, m, world, 0);
 		// TODO Auto-generated constructor stub
 		this.name = name;
 	}
