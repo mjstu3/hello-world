@@ -97,8 +97,7 @@ public class Droids extends SWActor {
 				scheduler.schedule(myMove, this, 1);
 			}
 			
-			
-			 
+	
 		}
 		
 		if (name == "C3PO"){

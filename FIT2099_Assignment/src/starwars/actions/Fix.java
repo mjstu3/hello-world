@@ -2,6 +2,7 @@ package starwars.actions;
 
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.Capability;
+import starwars.SWAction;
 import starwars.SWActionInterface;
 import starwars.SWActor;
 import starwars.SWAffordance;
@@ -114,15 +115,31 @@ public class Fix extends SWAffordance implements SWActionInterface {
 			targetActor = (SWActor) target;
 		}
 				
-		if (target.getSymbol() == "D") {
-			
-			if (target.getSymbol() == "D" && a.getItemCarried().getSymbol() == "D" ){
+		if (target.getSymbol() == "D" || a.getSymbol() == "R2" && target.getSymbol() == "D") {
+			// When Luke or a Droid encounters a stationary droid, he can fix the droid if it has already have spare droid parts.
+			if (target.getSymbol() == "D" && a.getItemCarried().getSymbol() == "D" || a.getSymbol() == "R2" && target.getSymbol() == "D"){
 				target.setHitpoints(200);
 				a.say(a.getShortDescription() + " repaired " + target.getShortDescription());
+				//Delete item carried.
 				a.setItemCarried(null);
 			}
 			
+					
 		}
+		else if (target.getSymbol() == "D" && a.getSymbol() == "R2"){
+			//If R2 goes over a droid part
+			SWEntityInterface theItem = (SWEntityInterface) target;
+			a.setItemCarried(theItem);
+			SWAction.getEntitymanager().remove(target);//remove the target from the entity manager since it's now held by the SWActor
+		
+			//remove the take affordance
+			target.removeAffordance(this);
+			// add a leave affordance
+			target.addAffordance(new Leave(theItem, messageRenderer));
+		}
+			
+			
+		
 		else {
 			a.say("Nothing can be repaired..................................................................................");
 		}
