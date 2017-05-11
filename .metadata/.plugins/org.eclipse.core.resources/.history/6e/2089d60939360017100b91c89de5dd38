@@ -54,6 +54,7 @@ public abstract class Actor<T extends ActionInterface> extends Entity {
 		actions.add(a);
 	}
 	
+	
 	/**
 	 * Remove an <code>Action</code> from this <code>Actors</code>'s set of potential commands.  This does nothing if the
 	 * <code>Action a</code> was not in that set.

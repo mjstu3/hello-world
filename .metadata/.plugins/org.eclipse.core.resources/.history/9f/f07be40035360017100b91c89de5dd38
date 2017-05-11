@@ -49,7 +49,12 @@ public class Train extends SWAffordance implements SWActionInterface {
 	 */
 	@Override
 	public boolean canDo(SWActor a) {
-		return true;
+		if (a.isHumanControlled()) { 
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/**
@@ -68,7 +73,7 @@ public class Train extends SWAffordance implements SWActionInterface {
 		if (targetIsActor) {
 			targetActor = (SWActor) target;
 		}
-		System.out.println(target);
+		
 		if (targetActor.getSymbol() == "B") {
 			
 			a.say(target.getShortDescription() + " is training " + a.getShortDescription() + "!");
