@@ -26,9 +26,6 @@ public class SWEntity extends Entity implements SWEntityInterface {
 	
 	/**The amount of <code>trainingpoints</code> of this <code>SWEntity</code>.*/
 	protected int trainingpoints = 0; // Not all non-actor entities will make use of this
-	
-	/**The amount of <code>forceAbility</code> of this <code>SWEntity</code>.*/
-	protected int forceAbility = 0; // Not all non-actor entities will make use of this
 
 	/**
 	 * Constructor for this <code>SWEntity</code>. Will initialize this <code>SWEntity</code>'s
@@ -40,6 +37,7 @@ public class SWEntity extends Entity implements SWEntityInterface {
 		super(m);
 		capabilities = new HashSet<Capability>();
 	}
+
 
 	/**
 	 * Returns a String symbol representing this <code>SWEntity</code>.
@@ -100,12 +98,6 @@ public class SWEntity extends Entity implements SWEntityInterface {
 	@Override
 	public void takeTraining() {
 		this.trainingpoints += 25;
-	}
-
-
-	@Override
-	public int getForceAbility() {
-		return forceAbility;
 	}
 	
 }

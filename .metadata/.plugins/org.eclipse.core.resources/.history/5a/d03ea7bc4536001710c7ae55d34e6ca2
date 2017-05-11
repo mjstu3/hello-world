@@ -40,8 +40,8 @@ public class Droids extends SWActor {
 	 *            <code>TuskenRaider</code> belongs to
 	 * 
 	 */
-	public Droids(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
-		super(Team.GOOD, hitpoints, m, world, 0, 0);
+	public Droids(int hitpoints, String name, MessageRenderer m, SWWorld world) {
+		super(Team.GOOD, hitpoints, m, world, 0);
 		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.addAffordance(new Take(this, m));

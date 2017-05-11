@@ -40,8 +40,8 @@ public class Player extends SWActor {
 	 * @param world the <code>SWWorld</code> world to which this <code>Player</code> belongs to
 	 * 
 	 */
-	public Player(Team team, int hitpoints, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
-		super(team, hitpoints, m, world, trainingpoints, forceAbility);
+	public Player(Team team, int hitpoints, MessageRenderer m, SWWorld world, int trainingpoints) {
+		super(team, hitpoints, m, world, trainingpoints);
 		humanControlled = true; // this feels like a hack. Surely this should be dynamic
 	}
 	

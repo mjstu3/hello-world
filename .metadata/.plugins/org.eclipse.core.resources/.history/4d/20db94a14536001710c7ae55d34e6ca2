@@ -64,13 +64,6 @@ public interface SWEntityInterface extends EntityInterface {
 	public int getTrainingpoints();
 	
 	/**
-	 * Returns the forceAbility of this <code>SWEntity</code> or <code>SWActor</code>.
-	 * 
-	 * @return the amount of forceAbility
-	 */
-	public int getForceAbility();
-	
-	/**
 	 * Method that reduces the <code>hitpoints</code> to insist damage on of this 
 	 * <code>SWEntity</code> or <code>SWActor</code>.
 	 * 

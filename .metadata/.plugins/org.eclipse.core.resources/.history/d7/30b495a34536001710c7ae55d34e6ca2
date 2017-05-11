@@ -82,7 +82,6 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	 * @see 	#world
 	 * @see 	starwars.actions.Attack
 	 * @see 	#trainingpoints
-	 * @see 	#forceAbility
 	 */
 	public SWActor(Team team, int hitpoints, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
 		super(m);

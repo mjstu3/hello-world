@@ -176,62 +176,62 @@ public class SWWorld extends World {
 		entityManager.setLocation(blaster, loc);
 		
 		// A Tusken Raider
-		TuskenRaider tim = new TuskenRaider(200, "Tim", iface, this, 0, 0);
+		TuskenRaider tim = new TuskenRaider(200, "Tim", iface, this, 0);
 		tim.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(4,3);
 		entityManager.setLocation(tim, loc);
 		
 		// Another Tusken Raider
-		TuskenRaider tony = new TuskenRaider(200, "Tony", iface, this, 0, 0);
+		TuskenRaider tony = new TuskenRaider(200, "Tony", iface, this, 0);
 		tony.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(7,3);
 		entityManager.setLocation(tony, loc);
 		
 		// Another Tusken Raider
-		TuskenRaider theo = new TuskenRaider(200, "Theo", iface, this, 0, 0);
+		TuskenRaider theo = new TuskenRaider(200, "Theo", iface, this, 0);
 		theo.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(8,2);
 		entityManager.setLocation(theo, loc);
 		
 		// Another Tusken Raider
-		TuskenRaider troy = new TuskenRaider(200, "Troy", iface, this, 0, 0);
+		TuskenRaider troy = new TuskenRaider(200, "Troy", iface, this, 0);
 		troy.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(2,5);
 		entityManager.setLocation(troy, loc);
 		
 		//Droid R2D2
-		Droids R2D2 = new Droids(200, "R2D2", iface, this, 0, 0);
+		Droids R2D2 = new Droids(200, "R2D2", iface, this);
 		R2D2.setSymbol("R2");
 		loc = myGrid.getLocationByCoordinates(3,4);
 		entityManager.setLocation(R2D2, loc);
 		
 		
 		//Droid C3PO
-		Droids C3PO = new Droids(200, "C3PO", iface, this, 0, 0);
+		Droids C3PO = new Droids(200, "C3PO", iface, this);
 		C3PO.setSymbol("C3");
 		loc = myGrid.getLocationByCoordinates(1,1);
 		entityManager.setLocation(C3PO, loc);
 				
 		//Droid C3PO
-		Droids d1 = new Droids(0, "", iface, this, 0, 0);
+		Droids d1 = new Droids(0, "", iface, this);
 		d1.setSymbol("D");
 		loc = myGrid.getLocationByCoordinates(6,4);
 		entityManager.setLocation(d1, loc);
 		
 		//Droid C3PO
-		Droids d2 = new Droids(0, "D", iface, this, 0, 0);
+		Droids d2 = new Droids(0, "D", iface, this);
 		d2.setSymbol("D");
 		loc = myGrid.getLocationByCoordinates(2,4);
 		entityManager.setLocation(d2, loc);
 		
 		//Humanoid Uncle Owen
-		Humanoids owen = new Humanoids(100, "Uncle Owen", iface, this, 0, 0);
+		Humanoids owen = new Humanoids(100, "Uncle Owen", iface, this);
 		owen.setSymbol("U");
 		loc = myGrid.getLocationByCoordinates(8,7);
 		entityManager.setLocation(owen, loc);
 				
 		//Humanoid Aunt Beru
-		Humanoids beru = new Humanoids(100, "Aunt Beru", iface, this, 0, 0);
+		Humanoids beru = new Humanoids(100, "Aunt Beru", iface, this);
 		beru.setSymbol("A");
 		loc = myGrid.getLocationByCoordinates(9,6);
 		entityManager.setLocation(beru, loc);

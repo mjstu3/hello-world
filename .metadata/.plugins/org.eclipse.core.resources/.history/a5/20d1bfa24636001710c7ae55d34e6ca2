@@ -25,11 +25,9 @@ public class Humanoids extends SWActor {
 	 * @param world
 	 *            the <code>SWWorld</code> world to which this
 	 *            <code>Humanoid</code> belongs to
-	 * @param forceAbility 
-	 * @param trainingpoints 
 	 * 
 	 */
-	public Humanoids(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
+	public Humanoids(int hitpoints, String name, MessageRenderer m, SWWorld world) {
 		super(Team.GOOD, hitpoints, m, world, 0, 0);
 		// TODO Auto-generated constructor stub
 		this.name = name;
