@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.0" icons="true" automaticImage="PNG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="starwars.entities.actors.BenKenobi" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/starwars/entities/actors/BenKenobi.java" binary="false" label="benKenobi" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="186" y="0"/>    
+    <execution id="2">      
+      <position height="81" width="152" x="5" y="125"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="81" width="152" x="5" y="373"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="starwars.entities.actors.Player" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/starwars/entities/actors/Player.java" binary="false" label="player" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="543" y="0"/>    
+    <execution id="9">      
+      <position height="108" width="152" x="161" y="193"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="27" width="152" x="161" y="247"/>    
+    </execution>  
+  </object>  
+  <object id="12" language="java" name="edu.monash.fit2099.simulator.time.Scheduler.Event" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/edu/monash/fit2099/simulator/time/Scheduler.java" binary="false" label="event" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="668" y="0"/>    
+    <execution id="7">      
+      <position height="27" width="222" x="317" y="400"/>    
+    </execution>  
+  </object>  
+  <object id="13" language="java" name="edu.monash.fit2099.simulator.time.Scheduler" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/edu/monash/fit2099/simulator/time/Scheduler.java" binary="false" label="scheduler" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="668" y="0"/>    
+    <execution id="4">      
+      <position height="27" width="222" x="543" y="152"/>    
+    </execution>  
+  </object>  
+  <message id="3" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="10" asynchronous="false">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>
+</sequence-diagram>
