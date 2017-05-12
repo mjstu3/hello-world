@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.0" icons="true" generate-combined-fragments="true">  
+  <object id="1" language="java" name="starwars.entities.actors.Droids" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/starwars/entities/actors/Droids.java" binary="false" label="droids" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="214" y="0"/>    
+    <execution id="2">      
+      <position height="27" width="152" x="5" y="152"/>    
+    </execution>    
+    <execution id="3">      
+      <position height="81" width="152" x="5" y="283"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="81" width="152" x="5" y="496"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="starwars.SWActor" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/starwars/SWActor.java" binary="false" label="swActor" type="class" autoSize="false">    
+    <position height="124" width="156" x="156" y="0"/>    
+    <execution id="16">      
+      <position height="81" width="152" x="161" y="125"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="27" width="152" x="161" y="310"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="27" width="152" x="161" y="523"/>    
+    </execution>  
+  </object>  
+  <object id="18" language="java" name="edu.monash.fit2099.simulator.time.Scheduler.Event" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/edu/monash/fit2099/simulator/time/Scheduler.java" binary="false" label="event" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="440" y="0"/>    
+    <execution id="12">      
+      <position height="27" width="222" x="317" y="523"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="edu.monash.fit2099.simulator.time.Scheduler" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/edu/monash/fit2099/simulator/time/Scheduler.java" binary="false" label="scheduler" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="440" y="0"/>    
+    <execution id="5">      
+      <position height="27" width="222" x="543" y="310"/>    
+    </execution>    
+    <execution id="10">      
+      <position height="27" width="222" x="543" y="523"/>    
+    </execution>  
+  </object>  
+  <message id="4" asynchronous="false">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </message>  
+  <message id="6" operation="act():void" asynchronous="false">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" 
+    operation="schedule(edu.monash.fit2099.simulator.matter.ActionInterface,edu.monash.fit2099.simulator.matter.Actor&lt;?&gt;,int):void" 
+    asynchronous="false" x="89" y="499">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="17" operation="describeLocation():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="2"/>  
+  </message>
+</sequence-diagram>
