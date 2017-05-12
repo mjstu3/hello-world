@@ -198,12 +198,21 @@ public class SWWorld extends World {
 		troy.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(2,5);
 		entityManager.setLocation(troy, loc);
+		//Directions for R2 to Move in
+		Direction [] R2moves = {CompassBearing.EAST, CompassBearing.EAST,
+                CompassBearing.EAST,
+                CompassBearing.EAST, CompassBearing.EAST,
+                CompassBearing.WEST,
+                CompassBearing.WEST, CompassBearing.WEST,
+                CompassBearing.WEST, CompassBearing.WEST};
 		
 		//Droid R2D2
 		Droids R2D2 = new Droids(200, "R2D2", iface, this, 0, 0);
 		R2D2.setSymbol("R2");
 		loc = myGrid.getLocationByCoordinates(3,4);
 		entityManager.setLocation(R2D2, loc);
+		
+		
 		
 		
 		//Droid C3PO
