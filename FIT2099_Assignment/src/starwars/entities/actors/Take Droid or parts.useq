@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.0" icons="true" generate-combined-fragments="true">  
+  <object id="1" language="java" name="starwars.entities.actors.Player" project="src" 
+    file="/src/starwars/entities/actors/Player.java" binary="false" label="player" type="class" autoSize="false">    
+    <position height="99" width="127" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="63" width="123" x="5" y="115"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="21" width="123" x="5" y="270"/>    
+    </execution>  
+  </object>  
+  <object id="6" language="java" name="starwars.entities.actors.Droids" project="src" 
+    file="/src/starwars/entities/actors/Droids.java" binary="false" label="droids" type="class" autoSize="false">    
+    <position height="99" width="166" x="178" y="0"/>    
+    <execution id="7">      
+      <position height="64" width="162" x="183" y="249"/>    
+    </execution>    
+    <execution id="10">      
+      <position height="21" width="162" x="183" y="271"/>    
+    </execution>  
+  </object>  
+  <object id="11" language="java" name="edu.monash.fit2099.simulator.time.Scheduler.Event" project="src" 
+    file="/src/edu/monash/fit2099/simulator/time/Scheduler.java" binary="false" label="event" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="446" y="0"/>  
+  </object>  
+  <object id="12" language="java" name="edu.monash.fit2099.simulator.time.Scheduler" project="src" 
+    file="/src/edu/monash/fit2099/simulator/time/Scheduler.java" binary="false" label="scheduler" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="446" y="0"/>    
+    <execution id="4">      
+      <position height="21" width="152" x="454" y="136"/>    
+    </execution>  
+  </object>  
+  <message id="3" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="8" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="5"/>  
+  </message>  
+  <message id="9" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>
+</sequence-diagram>

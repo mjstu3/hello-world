@@ -10,6 +10,7 @@ import starwars.SWAffordance;
 import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
+import starwars.actions.Dissemble;
 import starwars.actions.Fix;
 import starwars.actions.Move;
 import starwars.actions.Take;
@@ -22,32 +23,15 @@ public class Droids extends SWActor {
 	//Initial value East for R2D2 to move
 	int num = 2;
 
-	/**
-	 * Create a Tusken Raider.  Tusken Raiders will randomly wander
-	 * around the playfield (on any given turn, there is a 50% probability
-	 * that they will move) and attack anything they can (if they can attack
-	 * something, they will).  They 
-	 * are all members of team TUSKEN, so their attempts to attack
-	 * other Tusken Raiders won't be effectual.
-	 * 
-	 * @param hitpoints
-	 *            the number of hit points of this Tusken Raider. If this
-	 *            decreases to below zero, the Raider will die.
-	 * @param name
-	 *            this raider's name. Used in displaying descriptions.
-	 * @param m
-	 *            <code>MessageRenderer</code> to display messages.
-	 * @param world
-	 *            the <code>SWWorld</code> world to which this
-	 *            <code>TuskenRaider</code> belongs to
-	 * 
-	 */
+	
+	
 	public Droids(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
 		super(Team.GOOD, hitpoints, m, world, 0, 0);
 		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.addAffordance(new Take(this, m));
 		this.addAffordance(new Fix(this, m));
+		this.addAffordance(new Dissemble(this, m));
 	}
 
 	@Override
@@ -110,16 +94,21 @@ public class Droids extends SWActor {
 				say(describeLocation() + ".   I am C3PO, Please help me please :(.");
 				}
 			}
+		
+		
+		if (this.getSymbol() == "DR") {
+			say(describeLocation());
+		}
 	}
 
 	@Override
 	public String getShortDescription() {
 		//Statement to pick up Droid parts
-		if (this.getHitpoints() <= 0){
+		if (this.getSymbol() == "DP"){
 			return name + " Droid Parts";
 		}
 		
-		return name + " the Droid";
+		return name + ", a Droid";
 	}
 
 	@Override

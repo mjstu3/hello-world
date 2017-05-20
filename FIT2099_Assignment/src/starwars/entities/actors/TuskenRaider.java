@@ -48,7 +48,7 @@ public class TuskenRaider extends SWActor {
 		if (isDead()) {
 			return;
 		}
-		say(describeLocation());
+		//say(describeLocation());
 
 		AttackInformation attack = AttackNeighbours.attackLocals(this, this.world, false, false);
 		if (attack != null) {

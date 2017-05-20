@@ -20,7 +20,7 @@ import starwars.SWEntityInterface;
  * 2017/02/03	Fixed the bug where the an actor could attack another actor in the same team (asel)
  * 2017/02/08	Attack given a priority of 1 in constructor (asel)
  */
-public class Fix extends SWAffordance implements SWActionInterface {
+public class Dissemble extends SWAffordance implements SWActionInterface {
 
 	
 	/**
@@ -30,7 +30,7 @@ public class Fix extends SWAffordance implements SWActionInterface {
 	 * @param theTarget the target being attacked
 	 * @param m message renderer to display messages
 	 */
-	public Fix(SWEntityInterface theTarget, MessageRenderer m) {
+	public Dissemble(SWEntityInterface theTarget, MessageRenderer m) {
 		super(theTarget, m);	
 		priority = 1;
 	}
@@ -55,7 +55,7 @@ public class Fix extends SWAffordance implements SWActionInterface {
 	@Override
 	public String getDescription() {
 		
-		return "repair " + target.getShortDescription();
+		return "dissemble " + target.getShortDescription();
 	}
 	
 
@@ -71,7 +71,7 @@ public class Fix extends SWAffordance implements SWActionInterface {
 	 * 			good unless this <code>SWActor a</code> has a suitable weapon.
 	 */
 	@Override
-	// Statements to show that Only Tusken Raiders, Ben Kenobi and Luke can attack
+	// Statements to show that R2 and yourself can dissemble the droids.
 	public boolean canDo(SWActor a) {
 		if (a.getSymbol() == "R2" ||  a.getSymbol() == "@" ){
 			return true;
@@ -96,15 +96,17 @@ public class Fix extends SWAffordance implements SWActionInterface {
 				
 		if (target.getSymbol() == "D" || a.getSymbol() == "R2" && target.getSymbol() == "D") {
 			// When Luke or a Droid encounters a stationary droid, he can fix the droid if it has already have spare droid parts.
-			if (a.getItemCarried().getSymbol() == "DP" || a.getSymbol() == "R2" && target.getSymbol() == "DP"){
-				a.say(a.getShortDescription() + " repaired " + target.getShortDescription());
-				//Delete item carried.
-				a.setItemCarried(null);
-				target.setSymbol("DR");
-					
+			if (a.getSymbol() == "R2" && target.getSymbol() == "D" && a.getItemCarried().getSymbol() != "DP" || a.getSymbol() == "@"){
+				target.setSymbol("DP");
+				a.say(a.getShortDescription() + " dissembled " + target.getShortDescription());
+				//Allows R2 to carry droid parts if it is not carrying any parts
+				if (a.getSymbol() == "R2") {
+					a.setItemCarried(target);
+				}
+						
 			}
 			else{
-				a.say("Sorry collect droid parts if you want to repair!");
+				a.say("Sorry you can not dissemble this droid");
 			}
 			
 					
@@ -124,7 +126,7 @@ public class Fix extends SWAffordance implements SWActionInterface {
 			
 		
 		else {
-			a.say("Nothing can be repaired..................................................................................");
+			a.say("Nothing can be Dissembled..................................................................................");
 		}
 	}	
 		
@@ -132,3 +134,4 @@ public class Fix extends SWAffordance implements SWActionInterface {
 }	
 		
 		
+

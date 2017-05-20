@@ -14,6 +14,9 @@ public enum Capability {
 	FILLABLE,//FILLABLE capability allows an entity to be refilled by another entity that 
 	            // has the Dip affordance.  Any FILLABLE Entity MUST implement the Fillable interface
 	DRINKABLE,//DRINKABLE capability allows an entity to be consumed by another entity 
+	REPAIR_DROID, //Able to repair the droids
+	DIS_DROID, //Dissemble the droid into droid parts
+	
 	
 	
 }

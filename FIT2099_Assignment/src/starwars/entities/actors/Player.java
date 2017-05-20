@@ -1,4 +1,5 @@
 package starwars.entities.actors;
+import starwars.actions.Dissemble;
 import starwars.actions.Fix;
 import starwars.actions.Leave;
 
@@ -45,6 +46,7 @@ public class Player extends SWActor {
 		super(team, hitpoints, m, world, trainingpoints, forceAbility);
 		humanControlled = true; // this feels like a hack. Surely this should be dynamic
 		this.addAffordance(new Fix(this, m));
+		this.addAffordance(new Dissemble(this, m));
 	}
 	
 	/**
