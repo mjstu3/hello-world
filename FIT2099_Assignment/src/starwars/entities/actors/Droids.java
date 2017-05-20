@@ -108,7 +108,13 @@ public class Droids extends SWActor {
 			return name + " Droid Parts";
 		}
 		
+		if (this.getSymbol() == "D"){
+		return name + ", a stationary Droid";
+		}
+		
+		
 		return name + ", a Droid";
+			
 	}
 
 	@Override
