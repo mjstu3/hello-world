@@ -112,16 +112,7 @@ public class Attack extends SWAffordance implements SWActionInterface {
 			targetActor = (SWActor) target;
 		}
 				
-		if (a.getSymbol() != "T" && a.getSymbol() != "C3" && a.getSymbol() != "B"){
-			
-			if (target.getSymbol() == "D" && a.getItemCarried().getSymbol() == "D" ){
-				target.setHitpoints(200);
-				a.say(a.getShortDescription() + " repaired " + target.getShortDescription());
-			}
-			
-		}
-		
-					
+						
 		
 		if (targetIsActor && (a.getTeam() == targetActor.getTeam())) { //don't attack SWActors in the same team
 			a.say("\t" + a.getShortDescription() + " says: Silly me! We're on the same team, " + target.getShortDescription() + ". No harm done ------------------------------");

@@ -89,12 +89,17 @@ public class Fix extends SWAffordance implements SWActionInterface {
 		boolean targetIsActor = target instanceof SWActor;
 		SWActor targetActor = null;
 		
+		//Exception for null error
+		if (target == null) {
+			return;
+		}
+		
 		
 		if (targetIsActor) {
 			targetActor = (SWActor) target;
 		}
 				
-		if (target.getSymbol() == "D" || a.getSymbol() == "R2" && target.getSymbol() == "D") {
+		if (target.getSymbol() == "D" || (a.getSymbol() == "R2" && target.getSymbol() == "D")) {
 			// When Luke or a Droid encounters a stationary droid, he can fix the droid if it has already have spare droid parts.
 			if (a.getItemCarried().getSymbol() == "DP" || a.getSymbol() == "R2" && target.getSymbol() == "DP"){
 				a.say(a.getShortDescription() + " repaired " + target.getShortDescription());

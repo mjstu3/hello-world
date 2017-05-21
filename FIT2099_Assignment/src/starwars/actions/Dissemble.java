@@ -89,14 +89,23 @@ public class Dissemble extends SWAffordance implements SWActionInterface {
 		boolean targetIsActor = target instanceof SWActor;
 		SWActor targetActor = null;
 		
+	
 		
 		if (targetIsActor) {
 			targetActor = (SWActor) target;
 		}
+		a.say(a.getShortDescription());
+		//Exception for null error
+		if (target == null) {
+			return;
+		}
 				
-		if (target.getSymbol() == "D" || a.getSymbol() == "R2" && target.getSymbol() == "D") {
-			// When Luke or a Droid encounters a stationary droid, he can fix the droid if it has already have spare droid parts.
-			if (a.getSymbol() == "R2" && target.getSymbol() == "D" && a.getItemCarried().getSymbol() != "DP" || a.getSymbol() == "@"){
+		if (a.getSymbol() == "R2" && target.getSymbol() == "D") {
+			
+			
+			// When Luke or a Droid encounters a stationary droid, he can dissemble the droid if it has already have spare droid parts.
+			if (a.getItemCarried() == null){
+				
 				target.setSymbol("DP");
 				a.say(a.getShortDescription() + " dissembled " + target.getShortDescription());
 				//Allows R2 to carry droid parts if it is not carrying any parts
@@ -106,7 +115,7 @@ public class Dissemble extends SWAffordance implements SWActionInterface {
 						
 			}
 			else{
-				a.say("Sorry you can not dissemble this droid");
+				a.say("Nothing can be dissembled...");
 			}
 			
 					
@@ -126,7 +135,7 @@ public class Dissemble extends SWAffordance implements SWActionInterface {
 			
 		
 		else {
-			a.say("Nothing can be Dissembled..................................................................................");
+			a.say("Nothing happened..................................................................................");
 		}
 	}	
 		

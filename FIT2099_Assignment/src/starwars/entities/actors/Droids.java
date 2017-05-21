@@ -14,6 +14,8 @@ import starwars.actions.Dissemble;
 import starwars.actions.Fix;
 import starwars.actions.Move;
 import starwars.actions.Take;
+import starwars.entities.actors.behaviors.AttackInformation;
+import starwars.entities.actors.behaviors.AttackNeighbours;
 
 public class Droids extends SWActor {
 
@@ -22,7 +24,7 @@ public class Droids extends SWActor {
 	private int stepCount = 0;
 	//Initial value East for R2D2 to move
 	int num = 2;
-
+	
 	
 	
 	public Droids(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
@@ -45,8 +47,14 @@ public class Droids extends SWActor {
 			
 			say(describeLocation());
 			
-	
+			
+			
+			
 			if (Math.random() > 0.5){
+				System.out.println(this.getItemCarried());
+				Dissemble R2Dis = new Dissemble(this.getItemCarried(), messageRenderer);
+				Fix R2Fix = new Fix(this.getItemCarried(), messageRenderer);
+				
 				
 				ArrayList<Direction> droiddirections = new ArrayList<Direction>();
 	
@@ -79,10 +87,14 @@ public class Droids extends SWActor {
 				Move myMove = new Move(heading, messageRenderer, world);
 	
 				scheduler.schedule(myMove, this, 1);
+				//Trying to allow R2 to dissemble and fix
+				R2Dis.act(this);
+				R2Fix.act(this);
+				
 			}
 			
-	
 		}
+		
 		
 		if (name == "C3PO"){
 			if (isDead()) {
