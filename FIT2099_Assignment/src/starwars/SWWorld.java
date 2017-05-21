@@ -209,7 +209,7 @@ public class SWWorld extends World {
 		//Droid R2D2
 		Droids R2D2 = new Droids(200, "R2D2", iface, this, 0, 0);
 		R2D2.setSymbol("R2");
-		loc = myGrid.getLocationByCoordinates(3,4);
+		loc = myGrid.getLocationByCoordinates(3,3);
 		entityManager.setLocation(R2D2, loc);
 		
 		
@@ -224,13 +224,13 @@ public class SWWorld extends World {
 		//Droid 1
 		Droids d1 = new Droids(200, "White Droid", iface, this, 0, 0);
 		d1.setSymbol("D");
-		loc = myGrid.getLocationByCoordinates(6,4);
+		loc = myGrid.getLocationByCoordinates(6,3);
 		entityManager.setLocation(d1, loc);
 		
 		//Droid 2
 		Droids d2 = new Droids(200, "Black Droid", iface, this, 0, 0);
 		d2.setSymbol("D");
-		loc = myGrid.getLocationByCoordinates(2,4);
+		loc = myGrid.getLocationByCoordinates(2,3);
 		entityManager.setLocation(d2, loc);
 		
 		//Humanoid Uncle Owen
@@ -253,6 +253,18 @@ public class SWWorld extends World {
 		canteen2.setHitpoints(500);
 		entityManager.setLocation(canteen2, loc);
 		canteen.addAffordance(new Take(canteen2, iface));
+		
+		// Darth Vader
+		Vader vader = new Vader(10000, "Darth Vader", iface, this, 0, 0);
+		vader.setSymbol("!V!");
+		loc = myGrid.getLocationByCoordinates(4,4);
+		entityManager.setLocation(vader, loc);
+		
+		//Humanoid Princess Leia
+		Humanoids leia = new Humanoids(100, "Princess Leia", iface, this, 0, 0);
+		leia.setSymbol("L");
+		loc = myGrid.getLocationByCoordinates(0,0);
+		entityManager.setLocation(leia, loc);
 	}
 
 	/*
