@@ -28,6 +28,8 @@ public class SWWorld extends World {
 	 */
 	private SWGrid myGrid;
 	
+	private MessageRenderer messageRenderer;
+	
 	/**The entity manager of the world which keeps track of <code>SWEntities</code> and their <code>SWLocation</code>s*/
 	private static final EntityManager<SWEntityInterface, SWLocation> entityManager = new EntityManager<SWEntityInterface, SWLocation>();
 	
@@ -344,5 +346,9 @@ public class SWWorld extends World {
 	 */
 	public static EntityManager<SWEntityInterface, SWLocation> getEntitymanager() {
 		return entityManager;
+	}
+
+	public MessageRenderer getMessageRenderer() {
+		return messageRenderer;
 	}
 }

@@ -91,4 +91,15 @@ public class SWGridController implements GridController {
 		return (SWActionInterface)selectedAction;
 	}
 	
+	public static SWActionInterface getSelection(ArrayList<ActionInterface> cmds) {
+		//Get the UI to display the commands to the user and get a selection
+		//TO DO: Ensure the cmd list is not empty to avoid an infinite wait
+		assert (cmds.size()>0): "No commands for Star Wars Actor";
+		
+		ActionInterface selectedAction = ui.getSelection(cmds);
+		
+		//cast and return selection
+		return (SWActionInterface)selectedAction;
+	}
+	
 }

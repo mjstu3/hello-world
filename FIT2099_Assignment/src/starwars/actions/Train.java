@@ -1,6 +1,7 @@
 package starwars.actions;
 
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
+import starwars.Capability;
 import starwars.SWActionInterface;
 import starwars.SWActor;
 import starwars.SWAffordance;
@@ -18,18 +19,7 @@ public class Train extends SWAffordance implements SWActionInterface {
 		super(theTarget, m);	
 		priority = 1;
 	}
-	
-	/**
-	 * Returns the time is takes to perform this <code>Train</code> action.
-	 * 
-	 * @return The duration of the Train action. Currently hard coded to return 1.
-	 */
-	@Override
-	public int getDuration() {
-		return 1;
-	}
-
-	
+		
 	/**
 	 * A String describing what this <code>Train</code> action will do, suitable for display on a user interface
 	 * 
@@ -37,7 +27,7 @@ public class Train extends SWAffordance implements SWActionInterface {
 	 */
 	@Override
 	public String getDescription() {
-		return "train " + this.target.getShortDescription();
+		return "get trained by " + this.target.getShortDescription();
 	}
 
 
@@ -49,7 +39,7 @@ public class Train extends SWAffordance implements SWActionInterface {
 	 */
 	@Override
 	public boolean canDo(SWActor a) {
-		return true;
+		return a.hasCapability(Capability.TRAINEE);
 	}
 
 	/**
@@ -62,37 +52,14 @@ public class Train extends SWAffordance implements SWActionInterface {
 	 */
 	@Override
 	public void act(SWActor a) {
-		SWEntityInterface target = this.getTarget();
-		boolean targetIsActor = target instanceof SWActor;
-		SWActor targetActor = null;
-		if (targetIsActor) {
-			targetActor = (SWActor) target;
-		}
-		System.out.println(target);
-		if (targetActor.getSymbol() == "B") {
-			
-			a.say(target.getShortDescription() + " is training " + a.getShortDescription() + "!");
-			
-			a.takeTraining();
-			int trainingpoints = a.getTrainingpoints();
-			
-			if (trainingpoints >= 100) {
-				a.say(a.getShortDescription() + " now has " + trainingpoints + " training points and is fully trained.");
-			}
-			else {
-				a.say(a.getShortDescription() + " now has " + trainingpoints + " training points.");
-				a.say(a.getShortDescription() + " needs " + (100 - trainingpoints) + " training points to be fully trained.");
-			}
-			
-			if (this.getTarget().getHitpoints() <= 0) {  // can't use isDead(), as we don't know that the target is an actor
-				target.setLongDescription(target.getLongDescription() + ", that was killed in a fight");
-							
-				//remove the train affordance of the dead actor so it can no longer be attacked
-				targetActor.removeAffordance(this);
-			}
-		}
-		else { // can't be trained with anyone except Ben
-			a.say("\t" + target.getShortDescription() + "says, I can't train you, I am not Ben Kenobi!");
-		}
+		    
+		if(!a.hasCapability(Capability.MIND_CONTROLLER))
+		{
+		    a.addCapability(Capability.MIND_CONTROLLER);
+		    a.removeCapability(Capability.TRAINEE);
+		    a.say(String.format("%s can control the minds of the weak willed.", a.getShortDescription()));
+		    a.say(String.format("%s has completed his training.", a.getShortDescription()));
+		    return;
+		} 
 	}
 }

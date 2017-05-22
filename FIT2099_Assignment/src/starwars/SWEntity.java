@@ -19,7 +19,7 @@ public class SWEntity extends Entity implements SWEntityInterface {
 	private String symbol;
 	
 	/**A set of <code>Capabilities</code> of this <code>SWEntity</code>*/
-	protected HashSet<Capability> capabilities;
+	protected HashSet<Capability> capabilities = new HashSet<Capability>();
 	
 	/**The amount of <code>hitpoints</code> of this <code>SWEntity</code>.*/
 	protected int hitpoints = 0; // Not all non-actor entities will make use of this
@@ -67,6 +67,16 @@ public class SWEntity extends Entity implements SWEntityInterface {
 	public boolean hasCapability(Capability c) {
 		return capabilities.contains(c);
 	}
+	
+	@Override
+    public void addCapability(Capability c) {
+		capabilities.add(c);
+    }
+
+    @Override
+    public void removeCapability(Capability c) {
+    	capabilities.remove(c);
+    }
 
 	@Override
 	public int getHitpoints() {
@@ -106,6 +116,11 @@ public class SWEntity extends Entity implements SWEntityInterface {
 	@Override
 	public int getForceAbility() {
 		return forceAbility;
+	}
+
+	@Override
+	public boolean isDead() {
+		return getHitpoints() <= 0;
 	}
 	
 }

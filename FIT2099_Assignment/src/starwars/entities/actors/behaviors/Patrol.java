@@ -13,8 +13,6 @@ public class Patrol {
 	
 	public Patrol(Direction [] moves) {
 		this.moves = new ArrayList<Direction>(Arrays.asList(moves));
-		
-		// TODO Auto-generated constructor stub
 	}
 
 	public Patrol(Collection<Direction> moves) {
@@ -23,10 +21,7 @@ public class Patrol {
 	
 	public Direction getNext() {
 		Direction nextMove =  moves.get(position);
-		position++;
-		if (position >= moves.size()) {
-			position = 0;
-		}
+		position = ++position % moves.size();
 		return nextMove;
 	}
 }

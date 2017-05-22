@@ -6,6 +6,7 @@ import starwars.SWLegend;
 import starwars.SWWorld;
 import starwars.Team;
 import starwars.actions.Move;
+import starwars.actions.Train;
 import starwars.entities.LightSaber;
 import starwars.entities.actors.behaviors.AttackInformation;
 import starwars.entities.actors.behaviors.AttackNeighbours;
@@ -33,8 +34,10 @@ public class BenKenobi extends SWLegend {
 		this.setLongDescription("Ben Kenobi, an old man who has perhaps seen too much");
 		LightSaber bensweapon = new LightSaber(m);
 		setItemCarried(bensweapon);
+		this.addAffordance(new Train(this, m));
+	    
 	}
-
+	
 	public static BenKenobi getBenKenobi(MessageRenderer m, SWWorld world, Direction [] moves) {
 		ben = new BenKenobi(m, world, moves);
 		ben.activate();

@@ -49,6 +49,10 @@ public interface SWEntityInterface extends EntityInterface {
 	 */
 	public boolean hasCapability(Capability c);
 	
+	public void addCapability(Capability c);
+    
+    public void removeCapability(Capability c);
+	
 	/**
 	 * Returns the hitpoints of this <code>SWEntity</code> or <code>SWActor</code>.
 	 * 
@@ -62,13 +66,15 @@ public interface SWEntityInterface extends EntityInterface {
 	 * @return the amount of trainingpoints
 	 */
 	
-	public void setHitpoints(int hp);
+	public int getTrainingpoints();
+	
 	/**
 	 * sets the amount of hitpoints
 	 * 
 	 * 
+	 */
 	
-	public int getTrainingpoints();
+	public void setHitpoints(int hp);
 	
 	/**
 	 * Returns the forceAbility of this <code>SWEntity</code> or <code>SWActor</code>.
@@ -78,11 +84,23 @@ public interface SWEntityInterface extends EntityInterface {
 	public int getForceAbility();
 	
 	/**
+     * Returns true if this <code>SWActor</code> is dead, false otherwise.
+     * <p>
+     * A <code>SWActor</code> is dead when it's <code>hitpoints</code> are less than or equal to zero (0)
+     *
+     * @author ram
+     * @return true if and only if this <code>SWActor</code> is dead, false otherwise
+     * @see #hitpoints
+     */
+    public boolean isDead();
+	
+	/**
 	 * Method that reduces the <code>hitpoints</code> to insist damage on of this 
 	 * <code>SWEntity</code> or <code>SWActor</code>.
 	 * 
 	 * @param damage the amount of <code>hitpoints</code> to be reduced
 	 * @pre <code>damage</code> should be greater than or equal to zero to avoid any increase in the number of <code>hitpoints</code>
+	 * 
 	 */
 	public void takeDamage(int damage);
 	
@@ -92,7 +110,5 @@ public interface SWEntityInterface extends EntityInterface {
 	 * must be trained 4 times to get 100 points
 	 */
 	public void takeTraining();
-	
-	public int getTrainingpoints();
 
 }

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import edu.monash.fit2099.gridworld.Grid.CompassBearing;
+import edu.monash.fit2099.simulator.matter.ActionInterface;
 import edu.monash.fit2099.simulator.matter.Actor;
 import edu.monash.fit2099.simulator.matter.Affordance;
 import edu.monash.fit2099.simulator.space.Location;
@@ -248,6 +249,9 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 		this.itemCarried = target;
 	}
 	
+	public void schedule(ActionInterface action) {
+		scheduler.schedule(action, this, action.getDuration());
+	}
 	
 	/**
 	 * Returns true if this <code>SWActor</code> is dead, false otherwise.
@@ -261,7 +265,6 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	public boolean isDead() {
 		return hitpoints <= 0;
 	}
-	
 
 	@Override
 	public String getSymbol() {
@@ -285,12 +288,21 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	public boolean isHumanControlled() {
 		return humanControlled;
 	}
-	
 
 	@Override
 	public boolean hasCapability(Capability c) {
-		return capabilities.contains(c);
+		return true;
 	}
+	
+	@Override
+    public void addCapability(Capability c) {
+		((SWEntityInterface) capabilities).addCapability(c);
+    }
+
+    @Override
+    public void removeCapability(Capability c) {
+    	((SWEntityInterface) capabilities).removeCapability(c);
+    }
 	
 	/**
 	 * This method will poll this <code>SWActor</code>'s current <code>Location loc</code>
@@ -325,7 +337,7 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 		/* Actually, that's not the case: all non-movement actions are transferred to newActions before the movements are transferred. --ram */
 	}
 
-
+	
 	
 	
 	

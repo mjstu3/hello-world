@@ -16,7 +16,7 @@ public enum Capability {
 	DRINKABLE,//DRINKABLE capability allows an entity to be consumed by another entity 
 	REPAIR_DROID, //Able to repair the droids
 	DIS_DROID, //Dissemble the droid into droid parts
-	
-	
+	MIND_CONTROLLER, //Control entity using the force
+	TRAINEE, //Actor can be trained
 	
 }
