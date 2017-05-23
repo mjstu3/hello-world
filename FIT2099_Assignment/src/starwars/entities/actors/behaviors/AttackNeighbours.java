@@ -21,7 +21,7 @@ public class AttackNeighbours {
 		SWLocation location = world.getEntityManager().whereIs(actor);
 		EntityManager<SWEntityInterface, SWLocation> em = world.getEntityManager();
 		List<SWEntityInterface> entities = em.contents(location);
-
+		
 		// select the attackable things that are here
 		
 
@@ -31,6 +31,7 @@ public class AttackNeighbours {
 			if( e != actor && (e instanceof SWActor && (avoidFriendlies==false || ((SWActor)e).getTeam() != actor.getTeam()) || (avoidNonActors == false && !(e instanceof SWActor)))) {
 				for (Affordance a : e.getAffordances()) {
 					if (a instanceof Attack) {
+						
 
 						attackables.add(new AttackInformation(e, a));
 						break;
@@ -42,8 +43,10 @@ public class AttackNeighbours {
 		// if there's at least one thing we can attack, randomly choose
 		// something to attack
 		if (attackables.size() > 0) {
-			return attackables.get((int) (Math.floor(Math.random() * attackables.size())));
-		} else {
+			 
+			return attackables.get((int) (Math.floor(Math.random() * attackables.size())));		 
+		} 
+		else {
 			return null;
 		}
 	}

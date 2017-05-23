@@ -53,7 +53,11 @@ public class Attack extends SWAffordance implements SWActionInterface {
 	 */
 	@Override
 	public String getDescription() {
-		return "attack " +  this.target.getShortDescription();
+		//Ensure Luke can not attack R2D2, due to clarity reasons in console. (Too much spam)
+		if (this.getTarget().getSymbol() != "R2" && this.getTarget().getSymbol() != "D" && this.getTarget().getSymbol() != "DR" && this.getTarget().getSymbol() != "DP"){
+			return "attack " +  this.target.getShortDescription();
+		}
+		return "Nothing to see here...";
 	}
 	
 

@@ -110,5 +110,8 @@ public interface SWEntityInterface extends EntityInterface {
 	 * must be trained 4 times to get 100 points
 	 */
 	public void takeTraining();
+	
+	
+	
 
 }

@@ -10,6 +10,7 @@ import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
 import starwars.actions.Move;
+import starwars.entities.Blaster;
 import starwars.entities.actors.behaviors.AttackInformation;
 import starwars.entities.actors.behaviors.AttackNeighbours;
 
@@ -19,8 +20,11 @@ public class StormT extends SWActor {
 
 	public StormT(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
 		super(Team.EVIL, hitpoints, m, world, trainingpoints, forceAbility);
-		// TODO Auto-generated constructor stub
+		
+		// Sets a blaster to the storm troopers initially
+		Blaster gun =  new Blaster(m);
 		this.name = name;
+		this.setItemCarried(gun);
 	}
 
 	@Override
@@ -31,9 +35,19 @@ public class StormT extends SWActor {
 
 		AttackInformation attack = AttackNeighbours.attackLocals(this, this.world, true, true);
 		//By setting 3rd and 4th param to true, allows storm troopers to not attack friendlys and ignore non actors
-		if (attack != null) {
-			say(getShortDescription() + " has attacked " + attack.entity.getShortDescription());
-			scheduler.schedule(attack.affordance, this, 1);
+		
+			if (attack != null) {
+				//25 % chance of stormtroopers hitting, 75% chance missing!
+				if (Math.random() < 0.25){
+					scheduler.schedule(attack.affordance, this, 1);
+				
+					say(getShortDescription() + " has attacked " + attack.entity.getShortDescription());
+			}
+				else {
+					this.say("Stormtrooper shoots wildly!");
+			}
+			
+			
 		}
 		
 		else if (Math.random() < 0.05){

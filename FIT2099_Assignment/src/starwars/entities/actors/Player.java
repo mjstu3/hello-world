@@ -90,7 +90,7 @@ public class Player extends SWActor {
 						+ " is holding " + itemCarried.getShortDescription() );
 			}
 			
-			else if (itemCarried.getSymbol() == "R2"){
+			else if (itemCarried.getSymbol() == "R2" || itemCarried.getSymbol() == "DR"){
 				say(itemCarried.getShortDescription() 
 						+ " is following " + this.getShortDescription());
 					
