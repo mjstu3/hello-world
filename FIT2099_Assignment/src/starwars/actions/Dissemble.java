@@ -94,7 +94,6 @@ public class Dissemble extends SWAffordance implements SWActionInterface {
 		if (targetIsActor) {
 			targetActor = (SWActor) target;
 		}
-		a.say(a.getShortDescription());
 		//Exception for null error
 		if (target == null) {
 			return;

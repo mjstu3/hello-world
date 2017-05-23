@@ -46,35 +46,35 @@ public class BenKenobi extends SWLegend {
 	
 	@Override
 	protected void legendAct() {
-
+	
 		if(isDead()) {
 			return;
 		}
 		
+		AttackInformation attack = AttackNeighbours.attackLocals(this, this.world, false, false);
+		if (attack != null) {
+			say(getShortDescription() + " has attacked " + attack.entity.getShortDescription());
+			scheduler.schedule(attack.affordance, this, 1);
+		}
 		//If Ben's health has dropped, and is holding an empty canteen, he will not 
-		if (this.getHitpoints() < 1000 ) {
+		else if (this.getHitpoints() < 1000 ) {
 			if (this.getItemCarried().getSymbol() == "o"){
 				//Adds 200hp to ben's health
 				this.setHitpoints(200);
+				}
 			}
 		
-		else{	
-			AttackInformation attack;
-			attack = AttackNeighbours.attackLocals(ben,  ben.world, true, true);
-			
-			if (attack != null) {
-				say(getShortDescription() + " suddenly looks sprightly and attacks " +
-			attack.entity.getShortDescription());
-				scheduler.schedule(attack.affordance, ben, 1);
-			}
-			else {
+	
+		else {
 				Direction newdirection = path.getNext();
 				say(getShortDescription() + " moves " + newdirection);
 				Move myMove = new Move(newdirection, messageRenderer, world);
 	
 				scheduler.schedule(myMove, this, 1);
 				}
-			}
-		}
+			
+		
 	}
 }
+	
+

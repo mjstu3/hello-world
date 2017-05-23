@@ -200,13 +200,7 @@ public class SWWorld extends World {
 		troy.setSymbol("T");
 		loc = myGrid.getLocationByCoordinates(2,5);
 		entityManager.setLocation(troy, loc);
-		//Directions for R2 to Move in
-		Direction [] R2moves = {CompassBearing.EAST, CompassBearing.EAST,
-                CompassBearing.EAST,
-                CompassBearing.EAST, CompassBearing.EAST,
-                CompassBearing.WEST,
-                CompassBearing.WEST, CompassBearing.WEST,
-                CompassBearing.WEST, CompassBearing.WEST};
+	
 		
 		//Droid R2D2
 		Droids R2D2 = new Droids(200, "R2D2", iface, this, 0, 0);
@@ -267,6 +261,36 @@ public class SWWorld extends World {
 		leia.setSymbol("L");
 		loc = myGrid.getLocationByCoordinates(0,0);
 		entityManager.setLocation(leia, loc);
+		
+		//Storm Trooper 1
+		StormT s1 = new StormT(100, "1", iface, this, 0, 0);
+		s1.setSymbol("S");
+		loc = myGrid.getLocationByCoordinates(2,0);
+		entityManager.setLocation(s1, loc);
+		
+		//Storm Trooper 2
+		StormT s2 = new StormT(100, "2", iface, this, 0, 0);
+		s2.setSymbol("S");
+		loc = myGrid.getLocationByCoordinates(3,0);
+		entityManager.setLocation(s2, loc);
+		
+		//Storm Trooper 3
+		StormT s3 = new StormT(100, "3", iface, this, 0, 0);
+		s3.setSymbol("S");
+		loc = myGrid.getLocationByCoordinates(4,0);
+		entityManager.setLocation(s3, loc);
+		
+		//Storm Trooper 4
+		StormT s4 = new StormT(100, "4", iface, this, 0, 0);
+		s4.setSymbol("S");
+		loc = myGrid.getLocationByCoordinates(5,0);
+		entityManager.setLocation(s4, loc);
+		
+		//Storm Trooper 5
+		StormT s5 = new StormT(100, "5", iface, this, 0, 0);
+		s5.setSymbol("S");
+		loc = myGrid.getLocationByCoordinates(6,0);
+		entityManager.setLocation(s5, loc);
 	}
 
 	/*

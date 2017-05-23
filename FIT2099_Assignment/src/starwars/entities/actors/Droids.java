@@ -51,9 +51,9 @@ public class Droids extends SWActor {
 			
 			
 			if (Math.random() > 0.5){
-				System.out.println(this.getItemCarried());
-				Dissemble R2Dis = new Dissemble(this.getItemCarried(), messageRenderer);
-				Fix R2Fix = new Fix(this.getItemCarried(), messageRenderer);
+			
+				//Dissemble R2Dis = new Dissemble(this.getItemCarried(), messageRenderer);
+				//Fix R2Fix = new Fix(this.getItemCarried(), messageRenderer);
 				
 				
 				ArrayList<Direction> droiddirections = new ArrayList<Direction>();
@@ -88,8 +88,8 @@ public class Droids extends SWActor {
 	
 				scheduler.schedule(myMove, this, 1);
 				//Trying to allow R2 to dissemble and fix
-				R2Dis.act(this);
-				R2Fix.act(this);
+				//R2Dis.act(this);
+				//R2Fix.act(this);
 				
 			}
 			

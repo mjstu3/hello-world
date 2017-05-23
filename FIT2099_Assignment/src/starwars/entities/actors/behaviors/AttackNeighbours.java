@@ -9,6 +9,7 @@ import starwars.SWActor;
 import starwars.SWEntityInterface;
 import starwars.SWLocation;
 import starwars.SWWorld;
+import starwars.Team;
 import starwars.actions.Attack;
 
 public class AttackNeighbours {
@@ -22,14 +23,12 @@ public class AttackNeighbours {
 		List<SWEntityInterface> entities = em.contents(location);
 
 		// select the attackable things that are here
+		
 
 		ArrayList<AttackInformation> attackables = new ArrayList<AttackInformation>();
 		for (SWEntityInterface e : entities) {
 			// Figure out if we should be attacking this entity
-			if( e != actor && 
-					(e instanceof SWActor && 
-							(avoidFriendlies==false || ((SWActor)e).getTeam() != actor.getTeam()) 
-					|| (avoidNonActors == false && !(e instanceof SWActor)))) {
+			if( e != actor && (e instanceof SWActor && (avoidFriendlies==false || ((SWActor)e).getTeam() != actor.getTeam()) || (avoidNonActors == false && !(e instanceof SWActor)))) {
 				for (Affordance a : e.getAffordances()) {
 					if (a instanceof Attack) {
 
