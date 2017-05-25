@@ -77,6 +77,7 @@ public class Player extends SWActor {
 	 *  @see {@link edu.monash.fit2099.simulator.userInterface.MessageRenderer}
 	 */
 	public void describeScene() {
+		
 		//get the location of the player and describe it
 		SWLocation location = this.world.getEntityManager().whereIs(this);
 		say(this.getShortDescription() + " [" + this.getHitpoints() + "] is at " + location.getShortDescription());

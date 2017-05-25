@@ -72,9 +72,9 @@ public class Attack extends SWAffordance implements SWActionInterface {
 	 * 			good unless this <code>SWActor a</code> has a suitable weapon.
 	 */
 	@Override
-	// Statements to show that Only Tusken Raiders, Ben Kenobi and Luke can attack
+	// Statements to show that Only Tusken Raiders, Vader, Stormtroopers Ben Kenobi and Luke can attack
 	public boolean canDo(SWActor a) {
-		if (a.getSymbol() == "T" || a.getSymbol() == "B" || a.getSymbol() == "@" ){
+		if (a.getSymbol() == "T" || a.getSymbol() == "B" || a.getSymbol() == "@" || a.getSymbol() == "!V!" || a.getSymbol() == "S"){
 			return true;
 		}
 		else{

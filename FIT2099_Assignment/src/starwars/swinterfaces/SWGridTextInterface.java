@@ -71,7 +71,7 @@ public class SWGridTextInterface implements GridRenderer {
 		final int locationWidth = 8;
 		
 		StringBuffer emptyBuffer = new StringBuffer();
-		char es = loc.getEmptySymbol(); 
+		String es = loc.getEmptySymbol(); 
 		
 		for (int i = 0; i < locationWidth - 2; i++) { 	//add two less as one character is reserved for the location symbol and the other for the colon (":")
 			emptyBuffer.append(es);						

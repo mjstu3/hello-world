@@ -79,7 +79,10 @@ public class TextInterface implements MessageRenderer, MapRenderer, SimulationCo
 			"",
 			"discrete instants.  And some other stuff happened",
 			"",
-			"but waiting for it to scroll down is boring."};
+			"but waiting for it to scroll down is boring.",
+			"",
+			"YOU ARRIVE AT THE DEATH STAR!",
+			};
 		
 		for(String line: lines) {
 			System.out.println(line);
@@ -150,7 +153,7 @@ public class TextInterface implements MessageRenderer, MapRenderer, SimulationCo
 				SWLocation loc = grid.getLocationByCoordinates(col, row);
 				
 				StringBuffer emptyBuffer = new StringBuffer();
-				char es = loc.getEmptySymbol(); 
+				String es = loc.getEmptySymbol(); 
 				
 				for (int i = 0; i < locationWidth - 3; i++) { 	//add empty symbol character to the buffer
 					emptyBuffer.append(es);						//adding 2 less here because one space is reserved for the location symbol
@@ -211,11 +214,12 @@ public class TextInterface implements MessageRenderer, MapRenderer, SimulationCo
 
 		
 		int selection = 0;
-		while (selection < 1 || selection > cmds.size()) {//loop until a command in the valid range has been obtained
-			System.out.println("Enter command:");
+		while ( (selection < 1 || selection > cmds.size() ) && a.getHitpoints() > 1) {//loop until a command in the valid range has been obtained
+			System.out.println("Entder command:");
 			selection = (instream.nextInt());
+			return null;
 		}
-
+		
 	
 		return cmds.get(selection-1);//return the action selected
 	}

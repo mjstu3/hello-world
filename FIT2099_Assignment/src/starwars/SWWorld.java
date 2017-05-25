@@ -22,7 +22,7 @@ import starwars.entities.actors.*;
  * 				than by the Grid or MiddleWorld classes (asel)
  */
 public class SWWorld extends World {
-	
+
 	/**
 	 * <code>SWGrid</code> of this <code>SWWorld</code>
 	 */
@@ -73,13 +73,29 @@ public class SWWorld extends World {
 	 */
 	public void initializeWorld(MessageRenderer iface) {
 		SWLocation loc;
+		SWLocation end;
 		// Set default location string
 		for (int row=0; row < height(); row++) {
 			for (int col=0; col < width(); col++) {
 				loc = myGrid.getLocationByCoordinates(col, row);
 				loc.setLongDescription("SWWorld (" + col + ", " + row + ")");
 				loc.setShortDescription("SWWorld (" + col + ", " + row + ")");
-				loc.setSymbol('.');				
+				if (row == 9 && col == 0){
+					loc.setSymbol("FALC");
+				}
+				else{
+					loc.setSymbol(".");				
+				}
+			}
+		}
+		
+		// Set ending location 
+		for (int row=0; row < 2; row++) {
+			for (int col=0; col < 2; col++) {
+				end = myGrid.getLocationByCoordinates(col, row);
+				end.setLongDescription("SWWorld (" + col + ", " + row + ")");
+				end.setShortDescription("SWWorld (" + col + ", " + row + ")");
+				end.setSymbol(".");				
 			}
 		}
 		
@@ -90,7 +106,7 @@ public class SWWorld extends World {
 				loc = myGrid.getLocationByCoordinates(col, row);
 				loc.setLongDescription("Badlands (" + col + ", " + row + ")");
 				loc.setShortDescription("Badlands (" + col + ", " + row + ")");
-				loc.setSymbol('b');
+				loc.setSymbol("b");
 			}
 		}
 		
@@ -98,7 +114,7 @@ public class SWWorld extends World {
 		loc = myGrid.getLocationByCoordinates(5, 6);
 		loc.setLongDescription("Ben's Hut");
 		loc.setShortDescription("Ben's Hut");
-		loc.setSymbol('H');
+		loc.setSymbol("H");
 		
 		Direction [] patrolmoves = {CompassBearing.EAST, CompassBearing.EAST,
                 CompassBearing.SOUTH,
@@ -127,8 +143,8 @@ public class SWWorld extends World {
 			loc = myGrid.getLocationByCoordinates(col, 8);
 			loc.setShortDescription("Beggar's Canyon (" + col + ", " + 8 + ")");
 			loc.setLongDescription("Beggar's Canyon  (" + col + ", " + 8 + ")");
-			loc.setSymbol('C');
-			loc.setEmptySymbol('='); // to represent sides of the canyon
+			loc.setSymbol("C");
+			loc.setEmptySymbol("="); // to represent sides of the canyon
 		}
 		
 		// Moisture Farms
@@ -137,7 +153,7 @@ public class SWWorld extends World {
 				loc = myGrid.getLocationByCoordinates(col, row);
 				loc.setLongDescription("Moisture Farm (" + col + ", " + row + ")");
 				loc.setShortDescription("Moisture Farm (" + col + ", " + row + ")");
-				loc.setSymbol('F');
+				loc.setSymbol("F");
 				
 				// moisture farms have reservoirs
 				entityManager.setLocation(new Reservoir(iface), loc);				

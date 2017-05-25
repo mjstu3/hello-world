@@ -17,12 +17,12 @@ import edu.monash.fit2099.simulator.space.LocationMaker;
 public class SWLocation extends Location {
 	
 	/**A character that represents the <code>SWLocation</code>, suitable for display*/
-	private char symbol;
+	private String symbol;
 	
 	/**A character that represents an empty space in this <code>SWLocation</code>, suitable for display.
 	 * By default empty spaces in all <code>SWLocation</code>s are represented by a '.'
 	 */
-	private char emptySymbol = '.';
+	private String emptySymbol = ".";
 	
 	/**A longer string that describes this <code>SWLocation</code>*/
 	private String longDescription;
@@ -81,7 +81,7 @@ public class SWLocation extends Location {
 	 * @return 	a char representing this <code>SWLocation</code>.
 	 * @see 	#symbol
 	 */
-	public char getSymbol() {
+	public String getSymbol() {
 		return symbol;
 	}
 	
@@ -95,7 +95,8 @@ public class SWLocation extends Location {
 	 * @param 	c the new character symbol of this <code>SWLocation</code>
 	 * @see 	#symbol
 	 */
-	public void setSymbol(char c) {
+	//Changed the setSymbol from char to String
+	public void setSymbol(String c) {
 		symbol = c;
 	}
 
@@ -108,7 +109,7 @@ public class SWLocation extends Location {
 	 * @return 	a char representing empty space at this <code>SWLocation</code>
 	 * @see 	#emptySymbol
 	 */
-	public char getEmptySymbol() {
+	public String getEmptySymbol() {
 		return emptySymbol;
 	}
 	
@@ -122,7 +123,7 @@ public class SWLocation extends Location {
 	 * @param 	c the character to set the empty symbol to
 	 * @see 	#emptySymbol
 	 */
-	public void setEmptySymbol(char c) {
+	public void setEmptySymbol(String c) {
 		emptySymbol = c;
 	}
 	

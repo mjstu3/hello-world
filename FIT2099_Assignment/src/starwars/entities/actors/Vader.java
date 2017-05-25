@@ -10,6 +10,8 @@ import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
 import starwars.actions.Move;
+import starwars.entities.Blaster;
+import starwars.entities.LightSaber;
 import starwars.entities.actors.behaviors.AttackInformation;
 import starwars.entities.actors.behaviors.AttackNeighbours;
 
@@ -23,8 +25,11 @@ public class Vader extends SWActor {
 	 */
 	public Vader(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
 		super(Team.EVIL, hitpoints, m, world, trainingpoints, forceAbility);
-		// TODO Auto-generated constructor stub
+		// Sets Vader's lightsaber
 		this.name = name;
+		LightSaber saber =  new LightSaber(m);
+		this.name = name;
+		this.setItemCarried(saber);
 	}
 
 	@Override
@@ -35,6 +40,7 @@ public class Vader extends SWActor {
 		say(describeLocation());
 
 		AttackInformation attack = AttackNeighbours.attackLocals(this, this.world, false, false);
+		
 		if (attack != null) {
 			say(getShortDescription() + " has attacked " + attack.entity.getShortDescription());
 			scheduler.schedule(attack.affordance, this, 1);
