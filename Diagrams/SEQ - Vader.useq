@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.0" icons="true" generate-combined-fragments="true">  
+  <object id="1" language="java" name="starwars.entities.actors.Vader" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/starwars/entities/actors/Vader.java" binary="false" label="vader" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="547" y="0"/>    
+    <execution id="2">      
+      <position height="185" width="152" x="5" y="156"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="81" width="152" x="5" y="489"/>    
+    </execution>  
+  </object>  
+  <object id="12" language="java" name="starwars.actions.VaderPower" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/starwars/actions/VaderPower.java" binary="false" label="vaderPower" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="873" y="0"/>    
+    <execution id="6">      
+      <position height="115" width="130" x="161" y="199"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="27" width="130" x="161" y="260"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="27" width="130" x="161" y="516"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="edu.monash.fit2099.simulator.time.Scheduler.Event" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/edu/monash/fit2099/simulator/time/Scheduler.java" binary="false" label="event" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="622" y="0"/>  
+  </object>  
+  <object id="16" language="java" name="edu.monash.fit2099.simulator.time.Scheduler" project="FIT2099_Assignment" 
+    file="/FIT2099_Assignment/src/edu/monash/fit2099/simulator/time/Scheduler.java" binary="false" label="scheduler" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="622" y="0"/>    
+    <execution id="4">      
+      <position height="27" width="222" x="521" y="183"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="27" width="222" x="521" y="516"/>    
+    </execution>  
+  </object>  
+  <message id="3" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="act(starwars.SWActor):void" asynchronous="false" x="90" y="154">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="8" 
+    operation="schedule(edu.monash.fit2099.simulator.matter.ActionInterface,edu.monash.fit2099.simulator.matter.Actor&lt;?&gt;,int):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="13" 
+    operation="VaderPower(starwars.SWEntityInterface,edu.monash.fit2099.simulator.userInterface.MessageRenderer)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>
+</sequence-diagram>
