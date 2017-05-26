@@ -48,6 +48,7 @@ public class Vader extends SWActor {
 			say(getShortDescription() + " is looking at Luke!!! " + attack.entity.getShortDescription());
 			scheduler.schedule(attack.affordance, this, 1);
 		}
+		//50 percent chance of moving
 		else if (Math.random() > 0.5){
 			
 			ArrayList<Direction> possibledirections = new ArrayList<Direction>();
