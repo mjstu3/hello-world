@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="edu.monash.fit2099.gridworld.Grid.CompassBearing"/>
+<fullyQualifiedTypeName name="starwars.SWWorld"/>
+<fullyQualifiedTypeName name="starwars.swinterfaces.SWGridController"/>
+<fullyQualifiedTypeName name="starwars.Capability"/>
+<fullyQualifiedTypeName name="edu.monash.fit2099.simulator.matter.ActionInterface"/>
 <fullyQualifiedTypeName name="starwars.actions.Train"/>
 </qualifiedTypeNameHistroy>
