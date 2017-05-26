@@ -52,9 +52,7 @@ public class StormT extends SWActor {
 		}
 		
 		else if (Math.random() < 0.05){
-			
-		
-		
+
 		}
 		
 		else {	
@@ -78,15 +76,7 @@ public class StormT extends SWActor {
 	
 	
 	public void spawn(StormT S) {
-		S.setSymbol("S");
-		loc = myGrid.getLocationByCoordinates(5,9);
-		
-		// Luke
-		Player luke = new Player(Team.GOOD, 100, iface, this, 0, 10);
-		luke.setShortDescription("Luke");
-		entityManager.setLocation(luke, loc);
-		
-		
+
 	}
 
 	@Override
