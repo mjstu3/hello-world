@@ -57,7 +57,7 @@ public class VaderPower extends SWAffordance implements SWActionInterface {
 	@Override
 	public String getDescription() {
 		
-		return "repair " + target.getShortDescription();
+		return "Control " + target.getShortDescription();
 	}
 	
 
@@ -108,7 +108,7 @@ public class VaderPower extends SWAffordance implements SWActionInterface {
 				if (Math.random() > 0.75){
 					//Lose the game, set luke to 0hp
 					target.setHitpoints(0);
-					a.say("Luke is seduced by the Dark side. You lose");
+					System.out.println("Luke is seduced by the Dark side. You lose");
 					
 				}
 			}

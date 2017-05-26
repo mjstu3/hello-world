@@ -61,7 +61,14 @@ public class Player extends SWActor {
 	@Override
 	public void act() {	
 		describeScene();
-		scheduler.schedule(SWGridController.getUserDecision(this), this, 1);
+		if (this.getHitpoints() > 0){
+			scheduler.schedule(SWGridController.getUserDecision(this), this, 1);
+			
+		}
+		else{
+			System.out.println("You are dead :L");
+			System.exit(0);
+		}
 		
 	}
 	/**

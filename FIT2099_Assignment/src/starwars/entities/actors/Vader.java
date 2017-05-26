@@ -9,7 +9,9 @@ import starwars.SWActor;
 import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
+import starwars.actions.Dissemble;
 import starwars.actions.Move;
+import starwars.actions.VaderPower;
 import starwars.entities.Blaster;
 import starwars.entities.LightSaber;
 import starwars.entities.actors.behaviors.AttackInformation;
@@ -30,6 +32,7 @@ public class Vader extends SWActor {
 		LightSaber saber =  new LightSaber(m);
 		this.name = name;
 		this.setItemCarried(saber);
+		this.addAffordance(new VaderPower(this, m));
 	}
 
 	@Override
@@ -42,7 +45,7 @@ public class Vader extends SWActor {
 		AttackInformation attack = AttackNeighbours.attackLocals(this, this.world, false, false);
 		
 		if (attack != null) {
-			say(getShortDescription() + " has attacked " + attack.entity.getShortDescription());
+			say(getShortDescription() + " is looking at Luke!!! " + attack.entity.getShortDescription());
 			scheduler.schedule(attack.affordance, this, 1);
 		}
 		else if (Math.random() > 0.5){

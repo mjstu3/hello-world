@@ -27,6 +27,7 @@ public class SWWorld extends World {
 	 * <code>SWGrid</code> of this <code>SWWorld</code>
 	 */
 	private SWGrid myGrid;
+	private SWGrid myGrid2;
 	
 	private MessageRenderer messageRenderer;
 	
@@ -42,6 +43,9 @@ public class SWWorld extends World {
 		myGrid = new SWGrid(factory);
 		space = myGrid;
 		
+	
+		
+		
 	}
 
 	/** 
@@ -53,6 +57,7 @@ public class SWWorld extends World {
 	public int height() {
 		return space.getHeight();
 	}
+	
 	
 	/** 
 	 * Returns the width of the <code>Grid</code>. Useful to the Views when rendering the map.
@@ -89,15 +94,7 @@ public class SWWorld extends World {
 			}
 		}
 		
-		// Set ending location 
-		for (int row=0; row < 2; row++) {
-			for (int col=0; col < 2; col++) {
-				end = myGrid.getLocationByCoordinates(col, row);
-				end.setLongDescription("SWWorld (" + col + ", " + row + ")");
-				end.setShortDescription("SWWorld (" + col + ", " + row + ")");
-				end.setSymbol(".");				
-			}
-		}
+	
 		
 		
 		// BadLands
@@ -258,6 +255,19 @@ public class SWWorld extends World {
 		entityManager.setLocation(beru, loc);
 		
 		
+		/*Admiral Ackbar
+		Humanoids ackbar = new Humanoids(100, "Admiral Ackbar", iface, this, 0, 0);
+		ackbar.setSymbol("A");
+		end = myGrid.getLocationByCoordinates(0,0);
+		entityManager.setLocation(ackbar, end);
+				
+		//Mon Monthma
+		Humanoids mon = new Humanoids(100, "Mon Monthma", iface, this, 0, 0);
+		mon.setSymbol("M");
+		end = myGrid.getLocationByCoordinates(0,1);
+		entityManager.setLocation(mon, end);
+		*/
+		
 		//Canteen on Ben's Route
 		loc = myGrid.getLocationByCoordinates(5,5);
 		SWEntity canteen2 = new Canteen(iface, 10,0);
@@ -348,11 +358,14 @@ public class SWWorld extends World {
 		
 		//get the neighboring location in whichDirection
 		Location loc = entityManager.whereIs(a).getNeighbour(whichDirection);
+
 		
 		// Base class unavoidably stores superclass references, so do a checked downcast here
 		if (loc instanceof SWLocation)
 			//perform the move action by setting the new location to the the neighboring location
 			entityManager.setLocation(a, (SWLocation) entityManager.whereIs(a).getNeighbour(whichDirection));
+
+			
 	}
 
 	/**

@@ -214,10 +214,10 @@ public class TextInterface implements MessageRenderer, MapRenderer, SimulationCo
 
 		
 		int selection = 0;
-		while ( (selection < 1 || selection > cmds.size() ) && a.getHitpoints() > 1) {//loop until a command in the valid range has been obtained
-			System.out.println("Entder command:");
+		while ( (selection < 1 || selection > cmds.size() ) && a.getHitpoints() > 0) {//loop until a command in the valid range has been obtained
+			System.out.println("Enter command:");
 			selection = (instream.nextInt());
-			return null;
+			
 		}
 		
 	

@@ -2,6 +2,7 @@ package starwars.entities.actors;
 
 import java.util.ArrayList;
 
+
 import edu.monash.fit2099.gridworld.Grid;
 import edu.monash.fit2099.simulator.space.Direction;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
@@ -15,7 +16,7 @@ import starwars.entities.actors.behaviors.AttackInformation;
 import starwars.entities.actors.behaviors.AttackNeighbours;
 
 public class StormT extends SWActor {
-	SWLocation loc;
+	
 	private String name;
 
 	public StormT(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
@@ -73,6 +74,19 @@ public class StormT extends SWActor {
 
 			scheduler.schedule(myMove, this, 1);
 		}
+	}
+	
+	
+	public void spawn(StormT S) {
+		S.setSymbol("S");
+		loc = myGrid.getLocationByCoordinates(5,9);
+		
+		// Luke
+		Player luke = new Player(Team.GOOD, 100, iface, this, 0, 10);
+		luke.setShortDescription("Luke");
+		entityManager.setLocation(luke, loc);
+		
+		
 	}
 
 	@Override
