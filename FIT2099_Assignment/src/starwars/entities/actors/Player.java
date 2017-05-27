@@ -2,6 +2,7 @@ package starwars.entities.actors;
 import starwars.actions.Dissemble;
 import starwars.actions.Fix;
 import starwars.actions.Leave;
+import starwars.actions.Take;
 
 import java.util.List;
 
@@ -47,6 +48,7 @@ public class Player extends SWActor {
 		humanControlled = true; // this feels like a hack. Surely this should be dynamic
 		this.addAffordance(new Fix(this, m));
 		this.addAffordance(new Dissemble(this, m));
+		this.addAffordance(new Take(this, m));
 	}
 	
 	/**

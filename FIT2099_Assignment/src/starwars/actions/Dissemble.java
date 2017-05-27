@@ -54,8 +54,11 @@ public class Dissemble extends SWAffordance implements SWActionInterface {
 	 */
 	@Override
 	public String getDescription() {
-		
-		return "dissemble " + target.getShortDescription();
+		//Ensure Luke can dissemble all droids but not droid parts, due to clarity reasons in console. (Too much spam)
+		if (this.getTarget().getSymbol() != "DP"){
+			return "dissemble " +  this.target.getShortDescription();
+		}
+		return "Nothing to see here";
 	}
 	
 
@@ -99,23 +102,19 @@ public class Dissemble extends SWAffordance implements SWActionInterface {
 			return;
 		}
 				
-		if (a.getSymbol() == "R2" && target.getSymbol() == "D") {
+		if ((a.getSymbol() == "R2"  || a.getSymbol() == "@") && (target.getSymbol() == "D" || target.getSymbol() == "DR" )) {
 			
 			
 			// When Luke or a Droid encounters a stationary droid, he can dissemble the droid if it has already have spare droid parts.
-			if (a.getItemCarried() == null){
-				
-				target.setSymbol("DP");
-				a.say(a.getShortDescription() + " dissembled " + target.getShortDescription());
-				//Allows R2 to carry droid parts if it is not carrying any parts
-				if (a.getSymbol() == "R2") {
-					a.setItemCarried(target);
-				}
+		
+		target.setSymbol("DP");
+		a.say(a.getShortDescription() + " dissembled " + target.getShortDescription());
+		//Allows R2 to carry droid parts if it is not carrying any parts
+		if (a.getSymbol() == "R2") {
+			a.setItemCarried(target);
+		}
 						
-			}
-			else{
-				a.say("Nothing can be dissembled...");
-			}
+		
 			
 					
 		}

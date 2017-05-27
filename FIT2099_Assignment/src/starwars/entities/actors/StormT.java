@@ -11,6 +11,8 @@ import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
 import starwars.actions.Move;
+import starwars.actions.SpawnStorm;
+import starwars.actions.Take;
 import starwars.entities.Blaster;
 import starwars.entities.actors.behaviors.AttackInformation;
 import starwars.entities.actors.behaviors.AttackNeighbours;
@@ -26,7 +28,15 @@ public class StormT extends SWActor {
 		Blaster gun =  new Blaster(m);
 		this.name = name;
 		this.setItemCarried(gun);
+		
+		
+		
 	}
+	
+
+
+
+
 
 	@Override
 	public void act() {
@@ -51,8 +61,9 @@ public class StormT extends SWActor {
 			
 		}
 		
-		else if (Math.random() < 0.05){
-
+		else if (Math.random() < 1){
+			
+					
 		}
 		
 		else {	

@@ -54,8 +54,11 @@ public class Fix extends SWAffordance implements SWActionInterface {
 	 */
 	@Override
 	public String getDescription() {
-		
-		return "repair " + target.getShortDescription();
+		//Ensure Luke can repair only Stationary droids, due to clarity reasons in console. (Too much spam)
+		if (this.getTarget().getSymbol() != "DR" && this.getTarget().getSymbol() != "DP"){
+			return "repair " +  this.target.getShortDescription();
+		}
+		return "Nothing to see here";
 	}
 	
 

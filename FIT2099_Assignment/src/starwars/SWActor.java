@@ -26,8 +26,11 @@ import edu.monash.fit2099.simulator.space.Location;
 import edu.monash.fit2099.simulator.time.Scheduler;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.actions.Attack;
+import starwars.actions.Dissemble;
 import starwars.actions.Fix;
 import starwars.actions.Move;
+import starwars.actions.SpawnStorm;
+import starwars.actions.Take;
 
 public abstract class SWActor extends Actor<SWActionInterface> implements SWEntityInterface {
 	
@@ -99,6 +102,21 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 		//SWActors are given the Attack affordance hence they can be attacked
 		SWAffordance attack = new Attack(this, m);
 		this.addAffordance(attack);
+		
+		if (this.getSymbol() == "S"){
+			SWAffordance spawn = new SpawnStorm(this,m);
+			this.addAffordance(spawn);
+		}
+		
+		if (this.getSymbol() == "R2"){
+			SWAffordance take = new Take(this,m);
+			SWAffordance fix = new Fix(this,m);
+			SWAffordance dissem = new Dissemble(this,m);
+			
+			this.addAffordance(take);
+			this.addAffordance(fix);
+			this.addAffordance(dissem);
+		}
 		
 		
 	}

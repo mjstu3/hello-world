@@ -57,7 +57,7 @@ public class Attack extends SWAffordance implements SWActionInterface {
 		if (this.getTarget().getSymbol() != "R2" && this.getTarget().getSymbol() != "D" && this.getTarget().getSymbol() != "DR" && this.getTarget().getSymbol() != "DP"){
 			return "attack " +  this.target.getShortDescription();
 		}
-		return "Nothing to see here...";
+		return "Nothing to see here";
 	}
 	
 
