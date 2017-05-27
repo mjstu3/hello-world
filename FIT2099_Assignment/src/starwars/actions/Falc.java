@@ -20,7 +20,7 @@ import starwars.SWEntityInterface;
  * 2017/02/03	Fixed the bug where the an actor could attack another actor in the same team (asel)
  * 2017/02/08	Attack given a priority of 1 in constructor (asel)
  */
-public class Fix extends SWAffordance implements SWActionInterface {
+public class Falc extends SWAffordance implements SWActionInterface {
 
 	
 	/**
@@ -30,9 +30,9 @@ public class Fix extends SWAffordance implements SWActionInterface {
 	 * @param theTarget the target being attacked
 	 * @param m message renderer to display messages
 	 */
-	public Fix(SWEntityInterface theTarget, MessageRenderer m) {
+	public Falc(SWEntityInterface theTarget, MessageRenderer m) {
 		super(theTarget, m);	
-		priority = 1;
+		priority = 0;
 	}
 
 
@@ -54,11 +54,8 @@ public class Fix extends SWAffordance implements SWActionInterface {
 	 */
 	@Override
 	public String getDescription() {
-		//Ensure Luke can repair only Stationary droids, due to clarity reasons in console. (Too much spam)
-		if (this.getTarget().getSymbol() != "DR" && this.getTarget().getSymbol() != "DP" ){
-			return "repair " +  this.target.getShortDescription();
-		}
-		return "Nothing to see here";
+		
+		return "Are you going to the Mil Falcon?";
 	}
 	
 
@@ -74,9 +71,9 @@ public class Fix extends SWAffordance implements SWActionInterface {
 	 * 			good unless this <code>SWActor a</code> has a suitable weapon.
 	 */
 	@Override
-	// Statements to show that Only Tusken Raiders, Ben Kenobi and Luke can attack
+	// Statements to show that only Luke can enter the Mil Falcon
 	public boolean canDo(SWActor a) {
-		if (a.getSymbol() == "R2" ||  a.getSymbol() == "@" ){
+		if (a.getSymbol() == "@" ){
 			return true;
 		}
 		else{
@@ -102,39 +99,32 @@ public class Fix extends SWAffordance implements SWActionInterface {
 			targetActor = (SWActor) target;
 		}
 				
-		if (target.getSymbol() == "D" || (a.getSymbol() == "R2" && target.getSymbol() == "D")) {
-			// When Luke or a Droid encounters a stationary droid, he can fix the droid if it has already have spare droid parts.
-			if (a.getItemCarried().getSymbol() == "DP" || a.getSymbol() == "R2" && target.getSymbol() == "DP"){
-				a.say(a.getShortDescription() + " repaired " + target.getShortDescription());
-				//Delete item carried.
-				a.setItemCarried(null);
-				target.setSymbol("DR");
+		if (target.getSymbol() == "XIT") {
+			// When Luke goes to the Falcon
+			System.out.println("\n\n\n\n");
+			System.out.println(
+					"| .:M... | .:A... | \n"
+					+ "| .:@... | .:.... |"
+					);
+			
+			System.out.println("You arrive at the Rebel's Base.");
+			System.out.println("\n\n");
+			
+			//Print Win condition when leia and R2 all arrive at the falc safely
+			if (a.getCharaCarried().getSymbol() == "L" && a.getDroidCarried().getSymbol() == "R2"){
+				System.out.println("\n\nAdmiral Ackbar: Well done fellas! We have all the tools needed to destroy the death star. Leave the rest to us!");
+				System.exit(0);
+			}
+			else {
+				System.out.println("\n\nMothma: What are you doing here, farmboy? Bring us General Organa and the plans!\n\n ~You return to the deathstar....~");
+			}
 					
 			}
-			else{
-				a.say("Sorry collect droid parts if you want to repair!");
+		
 			}
 			
 					
-		}
-		else if (target.getSymbol() == "D" && a.getSymbol() == "R2"){
-			//If R2 goes over a droid part
-			SWEntityInterface theItem = (SWEntityInterface) target;
-			a.setItemCarried(theItem);
-			SWAction.getEntitymanager().remove(target);//remove the target from the entity manager since it's now held by the SWActor
 		
-			//remove the take affordance
-			target.removeAffordance(this);
-			// add a leave affordance
-			target.addAffordance(new Leave(theItem, messageRenderer));
-		}
-			
-			
-		
-		else {
-			a.say("Nothing can be repaired..................................................................................");
-		}
-	}	
 		
 					
 }	

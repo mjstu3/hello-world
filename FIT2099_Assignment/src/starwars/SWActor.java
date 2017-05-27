@@ -55,6 +55,10 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	/**The item carried by this <code>SWActor</code>. <code>itemCarried</code> is null if this <code>SWActor</code> is not carrying an item*/
 	private SWEntityInterface itemCarried;
 	
+	private SWEntityInterface charaCarried;
+	
+	private SWEntityInterface droidCarried;
+	
 	/**If or not this <code>SWActor</code> is human controlled. <code>SWActor</code>s are not human controlled by default*/
 	protected boolean humanControlled = false;
 	
@@ -192,13 +196,31 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	public ArrayList<SWActionInterface> getActions() {
 		ArrayList<SWActionInterface> actionList = super.getActions();
 		
-		//If the HobbitActor is carrying anything, look for its affordances and add them to the list
+		//If the Actor is carrying anything, look for its affordances and add them to the list
 		SWEntityInterface item = getItemCarried();
 		if (item != null)
 			for (Affordance aff : item.getAffordances())
 				if (aff instanceof SWAffordance)
 				actionList.add((SWAffordance)aff);
+		
+		
+		SWEntityInterface droid = getDroidCarried();
+		if (droid != null)
+			for (Affordance aff : droid.getAffordances())
+				if (aff instanceof SWAffordance)
+				actionList.add((SWAffordance)aff);
+		
+		SWEntityInterface chara = getCharaCarried();
+		if (chara != null)
+			for (Affordance aff : chara.getAffordances())
+				if (aff instanceof SWAffordance)
+				actionList.add((SWAffordance)aff);
+		
+		
 		return actionList;
+		
+		
+		
 	}
 	
 	/**
@@ -214,6 +236,14 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	 */
 	public SWEntityInterface getItemCarried() {
 		return itemCarried;
+	}
+	
+	public SWEntityInterface getCharaCarried() {
+		return charaCarried;
+	}
+	
+	public SWEntityInterface getDroidCarried() {
+		return droidCarried;
 	}
 
 	/**
@@ -266,6 +296,16 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	public void setItemCarried(SWEntityInterface target) {
 		this.itemCarried = target;
 	}
+	
+	public void setCharaCarried(SWEntityInterface target) {
+		this.charaCarried = target;
+	}
+	
+	public void setDroidCarried(SWEntityInterface target) {
+		this.droidCarried = target;
+	}
+	
+	
 	
 	public void schedule(ActionInterface action) {
 		scheduler.schedule(action, this, action.getDuration());

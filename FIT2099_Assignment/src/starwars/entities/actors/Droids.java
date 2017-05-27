@@ -14,6 +14,7 @@ import starwars.actions.Dissemble;
 import starwars.actions.Fix;
 import starwars.actions.Move;
 import starwars.actions.Take;
+import starwars.actions.TakeDroid;
 import starwars.entities.actors.behaviors.AttackInformation;
 import starwars.entities.actors.behaviors.AttackNeighbours;
 
@@ -31,7 +32,7 @@ public class Droids extends SWActor {
 		super(Team.GOOD, hitpoints, m, world, 0, 0);
 		// TODO Auto-generated constructor stub
 		this.name = name;
-		this.addAffordance(new Take(this, m));
+		this.addAffordance(new TakeDroid(this, m));
 		this.addAffordance(new Fix(this, m));
 		this.addAffordance(new Dissemble(this, m));
 	}

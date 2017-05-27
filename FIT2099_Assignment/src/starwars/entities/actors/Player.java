@@ -1,5 +1,6 @@
 package starwars.entities.actors;
 import starwars.actions.Dissemble;
+import starwars.actions.Falc;
 import starwars.actions.Fix;
 import starwars.actions.Leave;
 import starwars.actions.Take;
@@ -49,6 +50,7 @@ public class Player extends SWActor {
 		this.addAffordance(new Fix(this, m));
 		this.addAffordance(new Dissemble(this, m));
 		this.addAffordance(new Take(this, m));
+		
 	}
 	
 	/**

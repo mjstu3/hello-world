@@ -5,17 +5,15 @@ import starwars.SWActor;
 import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
-import starwars.actions.TakeDroid;
-import starwars.actions.TakeHumanoid;
+import starwars.actions.Falc;
 
-public class Humanoids extends SWActor {
+public class Mil extends SWActor {
 
 	private String name;
 
 	/**
-	 * Create a Humanoid.  These are Luke's Uncle Owen and Aunt Beru, who are
-	 * in the moisture farm.  They have no force powers and don't move.  They are 
-	 * used to test Luke's mind control powers after he has been trained.
+	 * Create a Ship.  Used for the exit
+	 * Starts on 0 health
 	 * 
 	 * @param hitpoints
 	 *            the number of hit points of this Humanoid. If this
@@ -31,27 +29,24 @@ public class Humanoids extends SWActor {
 	 * @param trainingpoints 
 	 * 
 	 */
-	public Humanoids(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
+	public Mil(int hitpoints, String name, MessageRenderer m, SWWorld world) {
 		super(Team.GOOD, hitpoints, m, world, 0, 0);
 		// TODO Auto-generated constructor stub
 		this.name = name;
-		//Leia can be picked up
-		
-		this.addAffordance(new TakeHumanoid(this, m));
-		
+		this.addAffordance(new Falc(this, m));
 	}
 
 	@Override
 	public void act() {
-		if (isDead()) {
-			return;
+		
 		}
-		say(describeLocation());
-	}
+		
+		
+	
 
 	@Override
 	public String getShortDescription() {
-		return name ;
+		return name + " The Ship";
 	}
 
 	@Override
@@ -59,9 +54,5 @@ public class Humanoids extends SWActor {
 		return this.getShortDescription();
 	}
 
-	private String describeLocation() {
-		SWLocation location = this.world.getEntityManager().whereIs(this);
-		return this.getShortDescription() + " [" + this.getHitpoints() + "] is at " + location.getShortDescription();
 
-	}
 }

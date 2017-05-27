@@ -315,7 +315,15 @@ public class SWWorld extends World {
 		s5.setSymbol("S");
 		loc = myGrid.getLocationByCoordinates(6,0);
 		entityManager.setLocation(s5, loc);
+		
+		
+		//Mil Falc
+		Mil mil = new Mil(0, "Millennium Falcon", iface, this);
+		mil.setSymbol("XIT");
+		loc = myGrid.getLocationByCoordinates(0,9);
+		entityManager.setLocation(mil, loc);
 	}
+	
 
 	/*
 	 * Render method was removed from here
