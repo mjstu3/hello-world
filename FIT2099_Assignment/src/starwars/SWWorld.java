@@ -27,8 +27,7 @@ public class SWWorld extends World {
 	 * <code>SWGrid</code> of this <code>SWWorld</code>
 	 */
 	private SWGrid myGrid;
-	private SWGrid myGrid2;
-	
+
 	private MessageRenderer messageRenderer;
 	
 	/**The entity manager of the world which keeps track of <code>SWEntities</code> and their <code>SWLocation</code>s*/
@@ -78,7 +77,6 @@ public class SWWorld extends World {
 	 */
 	public void initializeWorld(MessageRenderer iface) {
 		SWLocation loc;
-		SWLocation end;
 		// Set default location string
 		for (int row=0; row < height(); row++) {
 			for (int col=0; col < width(); col++) {
