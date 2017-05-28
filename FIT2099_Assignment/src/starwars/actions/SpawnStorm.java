@@ -46,9 +46,10 @@ public class SpawnStorm extends SWAffordance {
 	 */
     @Override
     public void act(SWActor actor) {
-    	EntityManager<SWEntityInterface, SWLocation> entityManager = SWAction.getEntitymanager();
-    	//entityManager.setLocation(new StormT(100, "Clone", messageRenderer, 0, 0), entityManager.whereIs(actor));
-    	
+    	if (Math.random() < 0.05){
+	    	EntityManager<SWEntityInterface, SWLocation> entityManager = SWAction.getEntitymanager();
+	    	entityManager.setLocation(new StormT(100, "Clone", messageRenderer, actor.getSWWorld(), 0, 0), entityManager.whereIs(actor));
+    	}
     	
     	actor.say(String.format("%s has spawned another storm clone!", target.getShortDescription()));
     }
