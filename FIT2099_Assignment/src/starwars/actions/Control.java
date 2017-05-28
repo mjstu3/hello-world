@@ -51,8 +51,6 @@ public class Control extends SWAffordance implements SWActionInterface {
 	 * Determine whether a particular <code>SWActor a</code> can control the target.
 	 * 
 	 * @param 	a the <code>SWActor</code> being queried
-	 * @return 	true any <code>SWActor</code> can always try an attack, it just won't do much 
-	 * 			good unless this <code>SWActor a</code> has a suitable weapon.
 	 */
 
 	@Override
@@ -68,10 +66,10 @@ public class Control extends SWAffordance implements SWActionInterface {
     			cmds.add(new Move(dir, messageRenderer, world));
 	}
 
-	messageRenderer.render(String.format("Force %s to move in which direction?", target.getShortDescription()));
-	SWActionInterface move = SWGridController.getSelection(cmds);
-	target.say(String.format("%s looks confused, but does it anyway.", target.getShortDescription()));
-	((SWActor)target).schedule(move);
+    	messageRenderer.render(String.format("Force %s to move in which direction?", target.getShortDescription()));
+    	SWActionInterface move = SWGridController.getSelection(cmds);
+    	target.say(String.format("%s looks confused, but does it anyway.", target.getShortDescription()));
+    	((SWActor)target).schedule(move);
     }
 
     

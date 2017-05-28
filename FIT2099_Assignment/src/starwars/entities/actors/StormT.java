@@ -20,7 +20,26 @@ import starwars.entities.actors.behaviors.AttackNeighbours;
 public class StormT extends SWActor {
 	
 	private String name;
-
+	
+	/**
+	 * Create a StormTrooper.  These actors are on the evil team and can attack the player
+	 * and anyone on the good team.
+	 * 
+	 * @param hitpoints
+	 *            the number of hit points of a StormTrooper. If this
+	 *            decreases to below zero, the actor will die.
+	 * @param name
+	 *            this actors's name. Used in displaying descriptions.
+	 * @param m
+	 *            <code>MessageRenderer</code> to display messages.
+	 * @param world
+	 *            the <code>SWWorld</code> world to which this
+	 *            <code>StormT</code> belongs to
+	 * @param forceAbility 
+	 * @param trainingpoints 
+	 * 
+	 */
+	
 	public StormT(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
 		super(Team.EVIL, hitpoints, m, world, trainingpoints, forceAbility);
 		
@@ -29,15 +48,8 @@ public class StormT extends SWActor {
 		this.name = name;
 		this.setItemCarried(gun);
 		
-		
-		
 	}
 	
-
-
-
-
-
 	@Override
 	public void act() {
 		if (isDead()) {
@@ -57,8 +69,6 @@ public class StormT extends SWActor {
 				else {
 					this.say("Stormtrooper shoots wildly!");
 			}
-			
-			
 		}
 		
 		else if (Math.random() < 1){

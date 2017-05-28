@@ -58,8 +58,6 @@ public class Move extends SWAction {
 		}
 				
 	}
-
-
 	
 	/**
 	 * This is a wrapper for getDescription().

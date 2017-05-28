@@ -22,7 +22,21 @@ public class Vader extends SWActor {
 	private String name;
 
 	/**
-	 Creates Darth Vader
+	 * Create Darth Vader.  He is the 'boss' actor of the game, the game is won if this actor
+	 * is defeated.  
+	 * 
+	 * @param hitpoints
+	 *            the number of hit points of Vader. If this
+	 *            decreases to below zero, Vader will die.
+	 * @param name
+	 *            this actors's name. Used in displaying descriptions.
+	 * @param m
+	 *            <code>MessageRenderer</code> to display messages.
+	 * @param world
+	 *            the <code>SWWorld</code> world to which this
+	 *            <code>Vader</code> belongs to
+	 * @param forceAbility 
+	 * @param trainingpoints 
 	 * 
 	 */
 	public Vader(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
@@ -34,7 +48,7 @@ public class Vader extends SWActor {
 		this.setItemCarried(saber);
 		this.addAffordance(new VaderPower(this, m));
 	}
-
+	
 	@Override
 	public void act() {
 		if (isDead()) {

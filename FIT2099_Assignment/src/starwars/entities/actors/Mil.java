@@ -40,9 +40,6 @@ public class Mil extends SWActor {
 	public void act() {
 		
 		}
-		
-		
-	
 
 	@Override
 	public String getShortDescription() {

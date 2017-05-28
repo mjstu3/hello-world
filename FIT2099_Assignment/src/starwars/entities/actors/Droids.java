@@ -26,7 +26,23 @@ public class Droids extends SWActor {
 	//Initial value East for R2D2 to move
 	int num = 2;
 	
-	
+	/**
+	 * Create a Droid.  These are C3PO and R2D2.  They can be dissembled into parts.
+	 * 
+	 * @param hitpoints
+	 *            the number of hit points of this Droid. If this
+	 *            decreases to below zero, the Droid will die.
+	 * @param name
+	 *            this droid's name. Used in displaying descriptions.
+	 * @param m
+	 *            <code>MessageRenderer</code> to display messages.
+	 * @param world
+	 *            the <code>SWWorld</code> world to which this
+	 *            <code>Droid</code> belongs to
+	 * @param forceAbility 
+	 * @param trainingpoints 
+	 * 
+	 */
 	
 	public Droids(int hitpoints, String name, MessageRenderer m, SWWorld world, int trainingpoints, int forceAbility) {
 		super(Team.GOOD, hitpoints, m, world, 0, 0);
